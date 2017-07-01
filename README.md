@@ -1,6 +1,8 @@
 ## SCRIPTS
 
-###### EDL
+Random snippets (that aren't important enough to warrant their own repository, but not trivial enough to delete either) that make the world a better place
+
+###### EDL PARSER
 
 An edit decision list or EDL is used in the post-production process of film editing and video editing. The list contains an ordered list of reel and timecode data representing where each video clip can be obtained in order to conform the final cut. [Wikipedia](https://en.wikipedia.org/wiki/Edit_decision_list)
 
