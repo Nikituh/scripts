@@ -63,65 +63,64 @@ penn_treebank_tags = {
 	"WRB": "Wh-adverb"
 }
 
+# Time is used simply for logging purposes. I want to know how long tagging takes
+start = time.time()
+
+# As the initial step, write the legend to the file
 with open(PARSED_FILE_NAME, 'w') as result_file:
 	result_file.write("LEGEND: \n")
 	for key in penn_treebank_tags:
 		text = key + ": " + penn_treebank_tags[key]
 		result_file.write(text + "\n")
 
-	result_file.write("\n\n")
+# Process word document
+source_texts = docx2txt.process(SOURCE_FILE_NAME)
 
-text = docx2txt.process(SOURCE_FILE_NAME)
-
-raw_pages = []
-parsed_pages = []
+raw_texts = []
+parsed_texts = []
 
 # docx2txt doesn't really offer a convenient way to read a document per page,
 # so I put together this hack that separates the whole text into pages by the headers each text contains.
 # Each text contains a number that starts with 0114 and then four other characters
-for item in text.split("0114"):
-	paragraph = item[4:].strip()
-	raw_pages.append(paragraph)
 
-counter = 0
+# Read raw texts from source and add it to the raw text array
+for source_text in source_texts.split("0114"):
+	paragraph = source_text[4:].strip()
+	raw_texts.append(paragraph)
 
-for page in raw_pages:
-	counter += 1
-	print "Paragraph " + str(counter) + ": \n"
-	print page
+# Parse raw texts and add them to the parsed text array
+for text in raw_texts:
+	
+	tokens = nltk.word_tokenize(text)
+	tagged_array = nltk.pos_tag(tokens)
+	
+	parsed_text = ""
 
-start = time.time()
-
-tokens = nltk.word_tokenize(text)
-tagged_array = nltk.pos_tag(tokens)
-
-with open(PARSED_FILE_NAME, 'a') as result_file:
 	for tag in tagged_array:
-
 		# Stringify and replace junk at start and end
 		result = str(tag).replace("(u", "").replace(")", "")
 		# Words and tags are surrounded by apostrophes, remove them
 		result = result.replace("'", "")
+		# Now we're left that with the word and the tag, separated by a comma. Split it into two
+		split = result.split(", ")
 		
+		word = split[0]
+		tag_short = split[1]
+
 		# Only count results that contain a letter, remove pure numbers punctuation marks
-		if (re.search('[a-zA-Z]', result) and "\u" not in result):
-			split = result.split(", ")
-
-			word = split[0]
-			tag_short = split[1]
-			tag_long = penn_treebank_tags[tag_short]
-
-			# result = word + " - " + tag_short + " (" + tag_long + ")"
+		if re.search('[a-zA-Z]', result):
 			result = word + " (" + tag_short + ")"
-			result_file.write(result + " ")
 		else:
-			split = result.split(", ")
-			punctuation_mark = split[0]
+			result = word
+		
+		parsed_text += result + " "
 
-			if punctuation_mark == ".":
-				result_file.write(punctuation_mark + "\n\n")
-			else:
-				result_file.write(punctuation_mark + " ")
+	parsed_texts.append(parsed_text)
+
+# Write texts from parsed text array to file
+with open(PARSED_FILE_NAME, 'a') as result_file:
+	for text in parsed_texts:
+		result_file.write(text + "\n\n")
 
 end = time.time()
 
