@@ -7,3 +7,8 @@ import re
 import time
 import docx2txt
 import nltk
+# conf.py contains configuration etc. files used both by written_text_analysis.py and spoken_text_analysis.py
+from conf import *
+
+SOURCE_FILE_NAME = "interview02txt.txt"
+PARSED_FILE_NAME = "parsed_spoken_texts.txt"
