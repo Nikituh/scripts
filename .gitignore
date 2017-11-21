@@ -7,5 +7,6 @@
 
 parsed_written_texts.txt
 
-Kirjalikkorpus_kõik.docx
-nltk/Kirjalikkorpus_k\303\265ik.docx
+# nltk-specific corpora
+written_texts.docx
+interview02txt.txt
