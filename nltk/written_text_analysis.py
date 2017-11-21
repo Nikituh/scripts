@@ -12,7 +12,7 @@ import time
 import docx2txt
 import re
 
-SOURCE_FILE_NAME = "Kirjalikkorpus_kõik.docx"
+SOURCE_FILE_NAME = "written_texts.docx"
 PARSED_FILE_NAME = "parsed_written_texts.txt"
 
 # NOTE:
