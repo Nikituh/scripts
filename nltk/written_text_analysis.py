@@ -10,7 +10,8 @@ import nltk
 import re
 import time
 import docx2txt
-import re
+# conf.py contains configuration etc. files used both by written_text_analysis.py and spoken_text_analysis.py
+from conf import *
 
 SOURCE_FILE_NAME = "written_texts.docx"
 PARSED_FILE_NAME = "parsed_written_texts.txt"
@@ -21,47 +22,6 @@ PARSED_FILE_NAME = "parsed_written_texts.txt"
 # but I don't know which ones i'd need, so screw it. Got 'em all
 
 # nltk.download('all')
-
-# The default tagger of nltk.pos_tag() uses the Penn Treebank Tag Set
-# http://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html
-penn_treebank_tags = {
-	"CC": "Coordinating conjunction",
-	"CD": "Cardinal number",
-	"DT": "Determiner",
-	"EX": "Existential there",
-	"FW": "Foreign word",
-	"IN": "Preposition or subordinating conjunction",
-	"JJ": "Adjective",
-	"JJR": "Adjective, comparative",
-	"JJS": "Adjective, superlative",
-	"LS": "List item marker",
-	"MD": "Modal",
-	"NN": "Noun, singular or mass",
-	"NNS": "Noun, plural",
-	"NNP": "Proper noun, singular",
-	"NNPS":	"Proper noun, plural",
-	"PDT": "Predeterminer",
-	"POS": "Possessive ending",
-	"PRP": "Personal pronoun",
-	"PRP$": "Possessive pronoun",
-	"RB": "Adverb",
-	"RBR": "Adverb, comparative",
-	"RBS": "Adverb, superlative",
-	"RP": "Particle",
-	"SYM": "Symbol",
-	"TO": "to",
-	"UH": "Interjection",
-	"VB": "Verb, base form",
-	"VBD": "Verb, past tense",
-	"VBG": "Verb, gerund or present participle",
-	"VBN": "Verb, past participle",
-	"VBP": "Verb, non-3rd person singular present",
-	"VBZ": "Verb, 3rd person singular present",
-	"WDT": "Wh-determiner",
-	"WP": "Wh-pronoun",
-	"WP$": "Possessive wh-pronoun",
-	"WRB": "Wh-adverb"
-}
 
 # Time is used simply for logging purposes. I want to know how long tagging takes
 start = time.time()

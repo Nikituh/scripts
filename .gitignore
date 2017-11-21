@@ -5,8 +5,10 @@
 
 *.DS_Store
 
-parsed_written_texts.txt
+*.pyc
 
 # nltk-specific corpora
 written_texts.docx
 interview02txt.txt
+parsed_written_texts.txt
+parsed_spoken_texts.txt
