@@ -88,9 +88,18 @@ for source_text in source_texts.split("0114"):
 	paragraph = source_text[4:].strip()
 	raw_texts.append(paragraph)
 
+
+# TODO 
+# Word's with apostrophies (let's) parsed wrong, split into three words: let + u2019 + s
+# UTF-8 encoding?
+# Save as .csv
+# Questions:
+# Does it look for sentences (and verbs in then?)
+
 # Parse raw texts and add them to the parsed text array
 for text in raw_texts:
 	
+	# text = nltk.wordpunct_tokenize(text.decode('utf8'))
 	tokens = nltk.word_tokenize(text)
 	tagged_array = nltk.pos_tag(tokens)
 	
@@ -103,7 +112,7 @@ for text in raw_texts:
 		result = result.replace("'", "")
 		# Now we're left that with the word and the tag, separated by a comma. Split it into two
 		split = result.split(", ")
-		
+
 		word = split[0]
 		tag_short = split[1]
 
@@ -125,8 +134,6 @@ with open(PARSED_FILE_NAME, 'a') as result_file:
 end = time.time()
 
 print("Tagging took	: " + str(end - start))
-
-
 
 
 
