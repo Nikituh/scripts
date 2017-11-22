@@ -30,6 +30,15 @@ with open(SOURCE_FILE_NAME, 'r') as result_file:
 		line = line.replace(":", "")
 		# Remove all tags (<tagname> </tagname>)
 		line = re.sub('<[^<]+?>', '', line)
+		# Remove everything surrounded by parentheses and square brackets
+		# These include unintelligible words, 
+		line = re.sub("[\(\[].*?[\)\]]", "", line)
+		# Remove = characters
+		line = line.replace("=", "")
+		# Remove @ characters
+		line = line.replace("=", "")
+		# Remove punctuation
+		line = line.replace("?", "").replace(".", "")
 
 		# Remove all speakers from lines
 		for speaker in speakers:
@@ -44,3 +53,9 @@ counter = 1
 for line in parsed_lines:
 	print str(counter) + ": " + line
 	counter += 1
+
+
+
+
+
+
