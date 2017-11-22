@@ -17,7 +17,7 @@ PARSED_FILE_NAME = "parsed_spoken_texts.txt"
 # These vary by text, are not universal
 speakers = ["PM01", "EF02"]
 
-parsed_lines = []
+parsed_raw_lines = []
 
 with open(SOURCE_FILE_NAME, 'r') as result_file:
 	for raw_line in result_file:
@@ -36,7 +36,7 @@ with open(SOURCE_FILE_NAME, 'r') as result_file:
 		# Remove = characters
 		line = line.replace("=", "")
 		# Remove @ characters
-		line = line.replace("=", "")
+		line = line.replace("@", "")
 		# Remove punctuation
 		line = line.replace("?", "").replace(".", "")
 
@@ -44,16 +44,48 @@ with open(SOURCE_FILE_NAME, 'r') as result_file:
 		for speaker in speakers:
 			line = line.replace(speaker, "")
 
-		parsed_lines.append(line)
+		parsed_raw_lines.append(line)
 
 # Counter is used for logging purposes
 # Just to get the line count
 counter = 1
 
-for line in parsed_lines:
-	print str(counter) + ": " + line
-	counter += 1
+parsed_lines = []
 
+for line in parsed_raw_lines:
+
+	tokens = nltk.word_tokenize(line)
+	tagged_array = nltk.pos_tag(tokens)
+	
+	parsed_text = ""
+
+	for tag in tagged_array:
+		# Stringify and replace junk at start and end
+		result = str(tag).replace("(u", "").replace(")", "")
+		# Words and tags are surrounded by apostrophes, remove them
+		result = result.replace("'", "")
+		# Now we're left that with the word and the tag, separated by a comma. Split it into two
+		split = result.split(", ")
+
+		word = split[0]
+		tag_short = split[1]
+
+		# Only count results that contain a letter, remove pure numbers punctuation marks
+		if re.search('[a-zA-Z]', result):
+			result = word + " (" + tag_short + ")"
+		else:
+			result = word
+		
+		result = result[1:]
+		parsed_text += result + " "
+
+	print parsed_text
+	parsed_lines.append(parsed_text)
+
+# Write texts from parsed text array to file
+with open(PARSED_FILE_NAME, 'w') as result_file:
+	for text in parsed_lines:
+		result_file.write(text + "\n")
 
 
 
