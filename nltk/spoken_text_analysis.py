@@ -28,7 +28,8 @@ with open(SOURCE_FILE_NAME, 'r') as result_file:
 		line = line.strip()
 		# Remove all instances of ":" as they denote emphasis, intonation, breaks in pronuncation
 		line = line.replace(":", "")
-		# Remove all tags (<tagname> </tagname>)
+		# Remove all tags (<tagname> </tagname>), usually overlapping speech
+		# TODO: Somehow display that this is overlapping text?
 		line = re.sub('<[^<]+?>', '', line)
 		# Remove everything surrounded by parentheses and square brackets
 		# These include unintelligible words, 
