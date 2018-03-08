@@ -12,3 +12,13 @@ written_texts.docx
 interview02txt.txt
 parsed_written_texts.txt
 parsed_spoken_texts.txt
+
+# parsed word analysis input and output
+parsed-text.txt
+raw-text.txt
+
+# facebook archive
+facebook-aareundo
+
+# word api key
+mashable_key
