@@ -48,7 +48,7 @@ for parsed_word in parsed_words:
 	clean_word = clean_word.replace(";", "")
 	clean_word = clean_word.replace("(", "").replace(")", "").strip()
 
-	url = base_url + word_without_tag
+	url = base_url + clean_word
 	request = urllib2.Request(url)
 
 	for key, value in basic_headers.items():
@@ -59,7 +59,13 @@ for parsed_word in parsed_words:
 	print("Requesting analysis for word: " + clean_word + " (" + str(counter) + "/" + str(total) + ")")
 	counter += 1
 
-	response = urllib2.urlopen(request)
+	try:
+		# Can throw: 404 Not Found
+		# { "success":false,"message":"word not found" }
+		response = urllib2.urlopen(request)
+	except:
+		parsed_analyzed_words.append(parsed_word + separator)
+		continue
 	
 	result = response.read()
 	result_json = json.loads(result)
@@ -75,7 +81,7 @@ for parsed_word in parsed_words:
 
 	for child in result_json:
 		tag = child["partOfSpeech"]
-		if not tag in possible_tags:
+		if not tag in possible_tags and tag != None:
 			possible_tags.append(tag)
 
 	possible_tags = "/".join(possible_tags)
@@ -84,9 +90,13 @@ for parsed_word in parsed_words:
 
 	parsed_analyzed_words.append(parsed_analyzed_word)
 
+# Clean the file of previous junk
+with open("parsed-text.txt", 'w') as destination_file:
+	destination_file.write("")
+
 for parsed_analyzed_word in parsed_analyzed_words:
-	with open("parsed-text.txt", 'w') as destination_file:
-		destination_file.write(parsed_analyzed_word)
+	with open("parsed-text.txt", 'a') as destination_file:
+		destination_file.write(parsed_analyzed_word + "\n")
 
 
 
