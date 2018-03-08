@@ -16,6 +16,7 @@ parsed_spoken_texts.txt
 # parsed word analysis input and output
 parsed-text.txt
 raw-text.txt
+parsed-text-manually-analyzed.txt
 
 # facebook archive
 facebook-aareundo

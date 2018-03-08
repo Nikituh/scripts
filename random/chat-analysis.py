@@ -17,7 +17,7 @@ start_time = time.time()
 # Chats are located under facebook<username>/messages/<index(int)>.html
 # The number seems to be completely random, not based on any statistic about the chat
 username = "aareundo"
-index = "579"
+index = "506"
 path = 'facebook-' + username + '/messages/' + index + '.html'
 
 # The file itself is a self-sufficient html file, meaning it contains extra information
@@ -43,6 +43,15 @@ for item in raw:
     		messages_by_user[by_user] = 1
     	else:
     		messages_by_user[by_user] += 1
+
+
+        # If you wish to get the character count instead:
+        # split = by_user.split()
+        # for character in split:
+        #     if not by_user in messages_by_user:
+        #         messages_by_user[by_user] = 1
+        #     else:
+        #         messages_by_user[by_user] += 1
 
 
 # Sort by descending
