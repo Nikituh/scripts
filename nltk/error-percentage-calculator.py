@@ -19,7 +19,7 @@ lines = []
 total_count = 0;
 correct_tag_count = 0
 
-filename = "parsed-text-manually-analyzed-3.txt"
+filename = "output/parsed-text-manually-analyzed.txt"
 
 def get_percentage(part, whole):
   return 100 * float(part)/float(whole)

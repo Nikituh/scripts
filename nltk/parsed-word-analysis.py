@@ -4,6 +4,13 @@
 
 import urllib2
 import json
+import sys
+
+print sys.argv
+
+if len(sys.argv) < 2:
+	print "Please add a number an argument"
+	exit()
 
 splitter = ") "
 separator = "- "
@@ -90,12 +97,13 @@ for parsed_word in parsed_words:
 
 	parsed_analyzed_words.append(parsed_analyzed_word)
 
+FILENAME = "output/parsed-text-" + sys.argv[1] + ".txt"
 # Clean the file of previous junk
-with open("output/parsed-text.txt", 'w') as destination_file:
+with open(FILENAME, 'w') as destination_file:
 	destination_file.write("")
 
 for parsed_analyzed_word in parsed_analyzed_words:
-	with open("output/parsed-text.txt", 'a') as destination_file:
+	with open(FILENAME, 'a') as destination_file:
 		destination_file.write(parsed_analyzed_word + "\n")
 
 

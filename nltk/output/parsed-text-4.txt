@@ -1,0 +1,245 @@
+The (DT) - definite article/adverb
+new (JJ) - adjective/adverb
+standard (NN) - noun/adjective
+of (IN) - preposition
+international (JJ) - adjective/noun
+English (NNP) - noun
+will (MD) - noun/verb
+have (VB) - verb/noun
+a (DT) - noun
+lot (NN) - noun/verb
+consequences (NNS) - 
+, which (WDT) - 
+will (MD) - noun/verb
+affect (VB) - verb/noun
+all (DT) - adverb/adjective
+countries (NNS) - noun
+in (IN) - noun/adverb/adjective
+the (DT) - definite article/adverb
+long (JJ) - adjective/verb
+perspective (NN) - noun
+. One (CD) - adjective/noun
+of (IN) - preposition
+the (DT) - definite article/adverb
+main (JJ) - adjective/noun
+advantages (NNS) - noun/verb
+would (MD) - 
+be (VB) - verb/noun
+a (DT) - noun
+better (JJR) - adjective/adverb/verb/noun
+communication (NN) - noun
+along (IN) - adverb
+everybody (NN) - noun
+. International (NNP) - adjective/noun
+firms (NNS) - adjective/noun/adverb/verb
+and (CC) - conjunction
+services (NNS) - noun
+will (MD) - noun/verb
+help (VB) - noun/verb
+to (TO) - preposition
+make (VB) - verb/noun
+life (NN) - noun
+easier (JJR) - 
+and (CC) - conjunction
+maybe (RB) - adverb
+even (RB) - adverb/adjective/verb/noun
+cheaper (JJR) - 
+. Also (RB) - adverb
+, the (DT) - definite article/adverb
+invention (NN) - noun
+of (IN) - preposition
+useful (JJ) - adjective
+machinary (NN) - 
+would (MD) - 
+grow (VB) - verb
+because (IN) - conjunction
+of (IN) - preposition
+the (DT) - definite article/adverb
+teamwork (NN) - noun
+. Another (DT) - adjective
+advantage (NN) - noun/verb
+of (IN) - preposition
+the (DT) - definite article/adverb
+new (JJ) - adjective/adverb
+standard (NN) - noun/adjective
+would (MD) - 
+be (VB) - verb/noun
+better (JJR) - adjective/adverb/verb/noun
+and (CC) - conjunction
+new (JJ) - adjective/adverb
+knowledge (NN) - noun
+of (IN) - preposition
+different (JJ) - adjective
+cultures (NNS) - noun/verb
+. This (DT) - pronoun
+would (MD) - 
+make (VB) - verb/noun
+people (NNS) - noun/verb
+more (RBR) - adjective/noun/adverb
+tolerant (JJ) - adjective
+towards (NNS) - 
+each (DT) - adverb/adjective
+other (JJ) - adjective
+and (CC) - conjunction
+also (RB) - adverb
+it (PRP) - noun/pronoun
+may (MD) - noun
+decrease (VB) - noun/verb
+violence (NN) - noun
+and (CC) - conjunction
+wars (NNS) - noun/verb
+would (MD) - 
+be (VB) - verb/noun
+rare (JJ) - adjective
+events (NNS) - noun
+. Although (IN) - 
+it (PRP) - noun/pronoun
+might (MD) - noun
+seem (VB) - verb
+to (TO) - preposition
+be (VB) - verb/noun
+a (DT) - noun
+welcoming (JJ) - adjective
+standard (NN) - noun/adjective
+, it (PRP) - noun/pronoun
+also (RB) - adverb
+has (VBZ) - 
+some (DT) - adverb/adjective
+negative (JJ) - adjective/verb/noun
+consequences (NNS) - 
+with (IN) - preposition
+it (PRP) - noun/pronoun
+. One (CD) - adjective/noun
+of (IN) - preposition
+the (DT) - definite article/adverb
+disadvantages (NNS) - verb/noun
+would (MD) - 
+be (VB) - verb/noun
+the (DT) - definite article/adverb
+growth (NN) - noun
+of (IN) - preposition
+globalisation (NN) - noun
+. It (PRP) - noun/pronoun
+is (VBZ) - 
+a (DT) - noun
+danger (NN) - noun
+to (TO) - preposition
+small (JJ) - adjective/noun
+cultures (NNS) - noun/verb
+and (CC) - conjunction
+different (JJ) - adjective
+traditions (NNS) - noun
+. Another (DT) - adjective
+disadvantage (NN) - verb/noun
+would (MD) - 
+be (VB) - verb/noun
+the (DT) - definite article/adverb
+change (NN) - verb/noun
+of (IN) - preposition
+economy (NN) - noun
+. Even (RB) - adverb/adjective/verb/noun
+though (IN) - 
+we (PRP) - pronoun/obj/pl
+may (MD) - noun
+hope (VB) - verb/noun
+for (IN) - preposition/conjunction/noun
+cheaper (JJR) - 
+prices (NNS) - noun/verb
+and (CC) - conjunction
+equality (NN) - noun
+, the (DT) - definite article/adverb
+globalasing (VBG) - 
+economy (NN) - noun
+could (MD) - 
+also (RB) - adverb
+raise (VB) - verb/noun
+the (DT) - definite article/adverb
+cost (NN) - verb/noun
+of (IN) - preposition
+everything (NN) - 
+and (CC) - conjunction
+lead (NN) - verb/noun
+to (TO) - preposition
+capitalism (NN) - noun
+. In (IN) - noun/adverb/adjective
+conclusion (NN) - noun
+, the (DT) - definite article/adverb
+new (JJ) - adjective/adverb
+standard (NN) - noun/adjective
+of (IN) - preposition
+international (JJ) - adjective/noun
+English (NNP) - noun
+seems (VBZ) - verb
+quite (RB) - adverb
+frightening (JJ) - noun/adjective
+, but (CC) - adverb
+also (RB) - adverb
+a (DT) - noun
+new (JJ) - adjective/adverb
+way (NN) - noun/adverb
+to (TO) - preposition
+new (JJ) - adjective/adverb
+solutions (NNS) - noun
+, which (WDT) - 
+may (MD) - noun
+please (VB) - verb
+the (DT) - definite article/adverb
+people (NNS) - noun/verb
+. Because (IN) - conjunction
+of (IN) - preposition
+the (DT) - definite article/adverb
+English (NNP) - noun
+spreading (NN) - noun
+changes (NNS) - verb/noun
+are (VBP) - noun
+coming (VBG) - noun/adjective
+and (CC) - conjunction
+those (DT) - 
+, who (WP) - noun
+refuse (VBP) - verb/noun
+to (TO) - preposition
+keep (VB) - noun/verb
+up (RP) - adjective/adverb/verb
+with (IN) - preposition
+the (DT) - definite article/adverb
+\u201c (JJ) - 
+trend (NN) - noun/verb
+\u201d (NN) - 
+will (MD) - noun/verb
+soon (RB) - adverb
+find (VB) - noun/verb
+themselves (PRP) - pronoun
+in (IN) - noun/adverb/adjective
+difficulties (NNS) - 
+and (CC) - conjunction
+also (RB) - adverb
+be (VB) - verb/noun
+bitter (JJ) - noun/adjective/adverb/verb
+about (IN) - adverb/adjective
+everything (NN) - 
+. It (PRP) - noun/pronoun
+is (VBZ) - 
+important (JJ) - adjective
+to (TO) - preposition
+keep (VB) - noun/verb
+up (RP) - adjective/adverb/verb
+with (IN) - preposition
+everything (NN) - 
+, which (WDT) - 
+at (IN) - noun
+first (JJ) - noun/adjective/adverb
+place (NN) - noun/verb
+seems (VBZ) - verb
+to (TO) - preposition
+be (VB) - verb/noun
+strange (JJ) - adjective
+, because (IN) - conjunction
+we (PRP) - pronoun/obj/pl
+never (RB) - adverb
+know (VBP) - verb/noun
+, what (WP) - noun/adverb
+good (VBD) - noun/adjective/adverb
+it (PRP) - noun/pronoun
+might (MD) - noun
+bring (VB) - verb
+. ) - 
