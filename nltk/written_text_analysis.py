@@ -13,8 +13,8 @@ import docx2txt
 # conf.py contains configuration etc. files used both by written_text_analysis.py and spoken_text_analysis.py
 from conf import *
 
-SOURCE_FILE_NAME = "written_texts.docx"
-PARSED_FILE_NAME = "parsed_written_texts.txt"
+SOURCE_FILE_NAME = "raw_texts/written_texts.docx"
+PARSED_FILE_NAME = "output/parsed_written_texts.txt"
 
 # NOTE:
 # Initially, if you haven't, you need to download the necessary files:
@@ -45,7 +45,7 @@ parsed_texts = []
 
 # Read raw texts from source and add it to the raw text array
 for source_text in source_texts.split("0114"):
-	paragraph = source_text[4:].strip()
+	paragraph = source_text[4:].strip()#.encode('utf-8').strip()
 	raw_texts.append(paragraph)
 
 
@@ -57,9 +57,12 @@ for source_text in source_texts.split("0114"):
 # Does it look for sentences (and verbs in then?)
 
 # Parse raw texts and add them to the parsed text array
+counter = 0
+
 for text in raw_texts:
 	
 	# text = nltk.wordpunct_tokenize(text.decode('utf8'))
+	# print("(" + str(counter) + ")" + text)
 	tokens = nltk.word_tokenize(text)
 	tagged_array = nltk.pos_tag(tokens)
 	
@@ -83,6 +86,10 @@ for text in raw_texts:
 			result = word
 		
 		parsed_text += result + " "
+
+	if counter < 20:
+		counter += 1
+		print(str(counter) + ". \n" + parsed_text + "\n")
 
 	parsed_texts.append(parsed_text)
 

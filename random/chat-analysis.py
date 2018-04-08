@@ -8,6 +8,9 @@
 # containing .html files of everything you've ever said and done
 # This operation might take some time, my archive's eventual size was 2.8gb
 
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import xml.etree.ElementTree
 import time
 import operator
@@ -17,7 +20,7 @@ start_time = time.time()
 # Chats are located under facebook<username>/messages/<index(int)>.html
 # The number seems to be completely random, not based on any statistic about the chat
 username = "aareundo"
-index = "506"
+index = "99"
 path = 'facebook-' + username + '/messages/' + index + '.html'
 
 # The file itself is a self-sufficient html file, meaning it contains extra information
@@ -59,10 +62,18 @@ sorted_messages_by_user = sorted(messages_by_user.items(), key=operator.itemgett
 
 counter = 1
 for key, value in sorted_messages_by_user:
-	print(str(counter) + ". " + key + ": " + str(value))
+	print(str(counter) + ". " + key.encode('utf-8').strip() + ": " + str(value))
 	counter += 1
 
 print("Total: " + str(total))
 
 elapsed_time = time.time() - start_time
 print("Calculation took: " + str(elapsed_time))
+
+
+
+
+
+
+
+

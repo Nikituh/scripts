@@ -1,0 +1,221 @@
+Some (DT) - adverb/adjective +
+of (IN) - preposition +
+the (DT) - definite article/adverb +
+consequences (NNS) - +
+of (IN) - preposition + 
+that (DT) - pronoun/adverb/conjunction + 
+new (JJ) - adjective/adverb +
+standard (NN) - noun/adjective +
+of (IN) - preposition +
+international (JJ) - adjective/noun + 
+English (NNP) - noun + 
+will (MD) - noun/verb +
+be (VB) - verb/noun +
+that (IN) - pronoun/adverb/conjunction + 
+some (DT) - adverb/adjective +
+or (CC) - noun +
+all (DT) - adverb/adjective + 
+grammatical (JJ) - adjective + 
+changes (NNS) - verb/noun +
+will (MD) - noun/verb +
+be (VB) - verb/noun +
+made (VBN) - adjective + 
+. Also (RB) - adverb - 
+, the (DT) - definite article/adverb +
+languages (NNS) - noun + 
+of (IN) - preposition + 
+other (JJ) - adjective + 
+countries (NNS) - noun + 
+might (MD) - noun + 
+turn (VB) - verb/noun + 
+into (IN) - preposition +
+English-like (JJ) - + 
+mixtures (NNS) - noun + 
+. Other (JJ) - adjective + 
+positive (JJ) - adjective/noun + 
+sides (NNS) - noun/adjective/verb + 
+of (IN) - preposition + 
+that (DT) - pronoun/adverb/conjunction + 
+would (MD) - + 
+be (VB) - verb/noun + 
+that (IN) - pronoun/adverb/conjunction -
+people (NNS) - noun/verb +
+might (MD) - noun +
+communicate (VB) - verb +
+much (RB) - adverb/noun/adjective +
+more (RBR) - adjective/noun/adverb +
+easily (RB) - adverb +
+. But (CC) - adverb +
+, there (EX) - adverb/noun -
+can (MD) - noun/verb +
+be (VB) - verb/noun +
+various (JJ) - adjective + 
+negative (JJ) - adjective/verb/noun +
+sides (NNS) - noun/adjective/verb + 
+in (IN) - noun/adverb/adjective +
+that (DT) - pronoun/adverb/conjunction -
+new (JJ) - adjective/adverb +
+standard (NN) - noun/adjective +
+. For (IN) - preposition/conjunction/noun +
+example (NN) - noun +
+, when (WRB) - +
+the (DT) - definite article/adverb +
+new (JJ) - adjective/adverb +
+international (JJ) - adjective/noun +
+English (NNP) - noun +
+is (VBZ) - +
+emerging (VBG) - adjective +
+, other (JJ) - adjective +
+languages (NNS) - noun +
+that (WDT) - pronoun/adverb/conjunction -
+are (VBP) - noun +
+not (RB) - adverb +
+that (IN) - pronoun/adverb/conjunction +
+strong (JJ) - adjective +
+, will (MD) - noun/verb +
+disappear (VB) - verb +
+and (CC) - conjunction +
+the (DT) - definite article/adverb +
+country (NN) - noun +
+will (MD) - noun/verb +
+be (VB) - verb/noun +
+left (VBN) - noun/adjective +
+with (IN) - preposition -
+no (DT) - noun/adverb/adjective +
+native (JJ) - adjective/noun +
+language (NN) - noun +
+. Also (RB) - adverb +
+, the (DT) - definite article/adverb +
+original (JJ) - noun/adjective +
+\u2018 (NNP) - #
+native (JJ) - adjective/noun + 
+\u2019 (NNP) - #
+english (NN) - noun +
+will (MD) - noun/verb +
+disappear (VB) - verb +
+too (RB) - adverb +
+, leaving (VBG) - noun +
+that (IN) - pronoun/adverb/conjunction +
+easy (JJ) - adjective/adverb +
+, international (JJ) - adjective/noun +
+new (JJ) - adjective/adverb +
+English (NNP) - noun +
+to (TO) - preposition +
+spread (VB) - adjective/verb/noun +
+and (CC) - conjunction +
+to (TO) - preposition +
+destroy (VB) - verb +
+everything (NN) - +
+what (WP) - noun/adverb +
+is (VBZ) - +
+left (VBN) - noun/adjective -
+from (IN) - preposition +
+the (DT) - definite article/adverb +
+old (JJ) - adjective/noun +
+English (NNP) - noun +
+. My (PRP$) - +
+opinion (NN) - noun +
+is (VBZ) - +
+that (IN) - pronoun/adverb/conjunction -
+it (PRP) - noun/pronoun +
+can (MD) - noun/verb +
+be (VB) - verb/noun +
+both (DT) - adjective +
+positive (JJ) - adjective/noun +
+and (CC) - conjunction +
+negative (JJ) - adjective/verb/noun +
+for (IN) - preposition/conjunction/noun +
+the (DT) - definite article/adverb +
+world (NN) - noun/adjective +
+and (CC) - conjunction +
+the (DT) - definite article/adverb +
+language (NN) - noun +
+itself (PRP) - pronoun +
+. It (PRP) - noun/pronoun +
+might (MD) - noun +
+be (VB) - verb/noun +
+damaging (VBG) - adjective +
+for (IN) - preposition/conjunction/noun +
+other (JJ) - adjective +
+languages (NNS) - noun +
+but (CC) - adverb -
+it (PRP) - noun/pronoun +
+also (RB) - adverb +
+might (MD) - noun +
+be (VB) - verb/noun +
+a (DT) - noun +
+good (JJ) - noun/adjective/adverb +
+start (NN) - verb/noun +
+for (IN) - preposition/conjunction/noun +
+better (JJR) - adjective/adverb/verb/noun +
+communication (NN) - noun +
+for (IN) - preposition/conjunction/noun +
+different (JJ) - adjective +
+countries (NNS) - noun +
+all (DT) - adverb/adjective +
+over (IN) - adjective/adverb/noun +
+the (DT) - definite article/adverb +
+world (NN) - noun/adjective +
+. My (PRP$) - +
+side (NN) - noun/adjective/verb +
+in (IN) - noun/adverb/adjective +
+that (DT) - pronoun/adverb/conjunction +
+situation (NN) - noun +
+is (VBZ) - +
+neutral (JJ) - adjective/noun +
+. I (PRP) - adjective/noun +
+\u2019 (VBP) - #
+d (RB) - noun/adjective !
+be (VB) - verb/noun +
+glad (JJ) - adjective/noun +
+, when (WRB) - -
+other (JJ) - adjective +
+countries (NNS) - noun +
+would (MD) - +
+get (VB) - verb/noun +
+along (IN) - adverb +
+finally (RB) - adverb +
+but (CC) - adverb -
+in (IN) - noun/adverb/adjective +
+the (DT) - definite article/adverb +
+same (JJ) - noun/adjective +
+time (NN) - noun/verb +
+, it (PRP) - noun/pronoun +
+makes (VBZ) - verb/noun +
+me (PRP) - noun +
+sad (JJ) - adjective +
+, because (IN) - conjunction +
+there (EX) - adverb/noun -
+would (MD) - +
+be (VB) - verb/noun +
+no (DT) - noun/adverb/adjective +
+native (JJ) - adjective/noun +
+language (NN) - noun +
+anymore (RB) - adverb +
+. But (CC) - adverb -
+in (IN) - noun/adverb/adjective +
+the (DT) - definite article/adverb +
+meantime (NN) - noun/adverb +
+, let (VB) - verb/noun +
+\u2019 (NNP) - #
+s (VB) - noun !
+be (VB) - verb/noun +
+proud (JJ) - adjective +
+for (IN) - preposition/conjunction/noun +
+having (VBG) - +
+our (PRP$) - pronoun +
+own (JJ) - verb/adjective +
+language (NN) - noun +
+and (CC) - conjunction +
+being (VBG) - noun +
+different (JJ) - adjective +
+. Noone (NN) - +
+can (MD) - noun/verb +
+predict (VB) - verb +
+the (DT) - definite article/adverb +
+future (NN) - noun/adjective +
+of (IN) - preposition +
+new (JJ) - adjective/adverb +
+international (JJ) - adjective/noun +
+language (NN) - noun +
+. ) - !

@@ -26,7 +26,7 @@ mashable_key = open("mashable_key", 'r').read()
 
 parsed_words = []
 
-with open("raw-text.txt", 'r') as source_file:
+with open("output/raw-text.txt", 'r') as source_file:
 	text = source_file.readlines()[0]
 	split = text.split(splitter)
 
@@ -91,11 +91,11 @@ for parsed_word in parsed_words:
 	parsed_analyzed_words.append(parsed_analyzed_word)
 
 # Clean the file of previous junk
-with open("parsed-text.txt", 'w') as destination_file:
+with open("output/parsed-text.txt", 'w') as destination_file:
 	destination_file.write("")
 
 for parsed_analyzed_word in parsed_analyzed_words:
-	with open("parsed-text.txt", 'a') as destination_file:
+	with open("output/parsed-text.txt", 'a') as destination_file:
 		destination_file.write(parsed_analyzed_word + "\n")
 
 

@@ -1,0 +1,189 @@
+When (WRB) - +
+it (PRP) - noun/pronoun +
+is (VBZ) - +
+likely (JJ) - adjective/adverb +
+that (IN) - pronoun/adverb/conjunction +
+a (DT) - noun +
+new (JJ) - adjective/adverb +
+standard (NN) - noun/adjective +
+of (IN) - preposition +
+international (JJ) - adjective/noun +
+English (NNP) - noun +
+will (MD) - noun/verb +
+emerge (VB) - verb +
+, there (EX) - adverb/noun -
+might (MD) - noun + 
+be (VB) - verb/noun +
+some (DT) - adverb/adjective +
+of (IN) - preposition +
+the (DT) - definite article/adverb +
+consequences (NNS) - +
+for (IN) - preposition/conjunction/noun +
+English (NNP) - noun +
+and (CC) - conjunction +
+also (RB) - adverb +
+for (IN) - preposition/conjunction/noun +
+other (JJ) - adjective +
+languages (NNS) - noun +
+. In (IN) - noun/adverb/adjective +
+my (PRP$) - +
+opinion (NN) - noun +
+the (DT) - definite article/adverb +
+main (JJ) - adjective/noun +
+positive (JJ) - adjective/noun +
+aspect (NN) - noun +
+of (IN) - preposition +
+the (DT) - definite article/adverb +
+international (JJ) - adjective/noun +
+English (NNP) - noun +
+will (MD) - noun/verb +
+be (VB) - verb/noun +
+communication (NN) - noun +
+that (WDT) - pronoun/adverb/conjunction - 
+will (MD) - noun/verb +
+change (VB) - verb/noun +
+to (TO) - preposition +
+a (DT) - noun +
+lot (NN) - noun/verb +
+more (JJR) - adjective/noun/adverb +
+easier (JJ) - +
+. In (IN) - noun/adverb/adjective +
+that (DT) - pronoun/adverb/conjunction -
+case (NN) - noun/verb +
+the (DT) - definite article/adverb +
+understanding (NN) - noun/adjective +
+between (IN) - adverb +
+different (JJ) - adjective +
+nations (NNS) - noun +
+will (MD) - noun/verb +
+be (VB) - verb/noun +
+great (JJ) - adjective/noun +
+and (CC) - conjunction +
+people (NNS) - noun/verb +
+would (MD) - +
+be (VB) - verb/noun +
+much (RB) - adverb/noun/adjective +
+more (RBR) - adjective/noun/adverb -
+enthusiastic (JJ) - adjective +
+about (IN) - adverb/adjective +
+learning (VBG) - noun +
+something (NN) - noun +
+new (JJ) - adjective/adverb +
+. Every (DT) - adjective +
+one (CD) - adjective/noun -
+of (IN) - preposition +
+us (PRP) - noun +
+is (VBZ) - +
+interested (JJ) - adjective +
+in (IN) - noun/adverb/adjective +
+new (JJ) - adjective/adverb +
+relationships (NNS) - noun +
+from (IN) - preposition +
+abroad (RB) - adverb/adjective +
+so (RB) - adverb/noun -
+why (WRB) - noun +
+not (RB) - adverb +
+to (TO) - preposition +
+learn (VB) - verb +
+something (NN) - noun +
+that (IN) - pronoun/adverb/conjunction +
+everyone (NN) - noun +
+knows (VBZ) - verb/noun +
+? The (DT) - +
+negative (JJ) - adjective/verb/noun +
+aspect (NN) - noun +
+from (IN) - preposition +
+this (DT) - pronoun +
+situation (NN) - noun +
+is (VBZ) - +
+a (DT) - noun +
+big (JJ) - adjective/adverb +
+, but (CC) - adverb -
+the (DT) - definite article/adverb +
+only (JJ) - adverb/adjective +
+one (NN) - adjective/noun +
+: fading (NN) - noun +
+other (JJ) - adjective +
+languages (NNS) - noun +
+. If (IN) - conjunction -
+most (JJS) - adverb/adjective +
+of (IN) - preposition +
+the (DT) - definite article/adverb +
+people (NNS) - noun/verb +
+would (MD) -  +
+be (VB) - verb/noun +
+able (JJ) - adjective +
+to (TO) - preposition +
+communicate (VB) - verb +
+with (IN) - preposition +
+other (JJ) - adjective +
+nations (NNS) - noun +
+of (IN) - preposition +
+the (DT) - definite article/adverb +
+world (NN) - noun/adjective +
+then (RB) - adverb/adjective/noun +
+why (WRB) - noun +
+should (MD) - +
+they (PRP) - pronoun +
+talk (VB) - verb/noun +
+with (IN) - preposition +
+someone (NN) - noun +
+in (IN) - noun/adverb/adjective +
+their (PRP$) - +
+mother-language (NN) - +
+? For (IN) - +
+most (JJS) - adverb/adjective +
+of (IN) - preposition +
+the (DT) - definite article/adverb +
+people (NNS) - noun/verb +
+it (PRP) - noun/pronoun +
+seems (VBZ) - verb +
+like (IN) - verb/adjective/noun +
+a (DT) - noun +
+waste (NN) - verb/adjective/noun +
+of (IN) - preposition +
+time (NN) - noun/verb +
+. I (PRP) - adjective/noun +
+believe (VBP) - verb +
+that (DT) - pronoun/adverb/conjunction +
+languages (VBZ) - noun -
+as (IN) - noun/adverb -
+they (PRP) - pronoun +
+are (VBP) - noun +
+today (NN) - adverb/noun +
+should (MD) - +
+be (VB) - verb/noun +
+left (VBN) - noun/adjective +
+exactly (RB) - adverb +
+the (DT) - definite article/adverb +
+same (JJ) - noun/adjective -
+. Everything (NN) - +
+is (VBZ) - +
+working (VBG) - adjective/noun +
+great (JJ) - adjective/noun +
+with (IN) - preposition +
+today (NN) - adverb/noun +
+\u2019 (NNP) - #
+s (NN) - noun !
+lifestyle (NN) - noun +
+and (CC) - conjunction +
+we (PRP) - pronoun/obj/pl +
+should (MD) - +
+keep (VB) - noun/verb +
+it (PRP) - noun/pronoun +
+in (IN) - noun/adverb/adjective +
+that (DT) - pronoun/adverb/conjunction +
+way (NN) - noun/adverb +
+. Why (WRB) - noun +
+change (NN) - verb/noun -
+something (NN) - noun +
+that (WDT) - pronoun/adverb/conjunction -
+has (VBZ) - -
+been (VBN) - +
+working (VBG) - adjective/noun +
+excellent (NN) - adjective +
+for (IN) - preposition/conjunction/noun +
+hundreds (NNS) - noun/adjective +
+of (IN) - preposition +
+years (NNS) - noun +
+? ) - 
