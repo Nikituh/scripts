@@ -3,6 +3,9 @@ import requests
 import time
 import sched, time
 
+# From:
+# https://matthewmoisen.com/blog/how-to-use-the-ds18b20-temperature-sensor-with-raspberry-pi/
+
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 

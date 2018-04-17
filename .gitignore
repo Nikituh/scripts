@@ -17,6 +17,8 @@ parsed_spoken_texts.txt
 parsed-text.txt
 raw-text.txt
 parsed-text-manually-analyzed.txt
+*/manually-analyzed/*
+*/output/*
 
 # facebook archive
 facebook-aareundo

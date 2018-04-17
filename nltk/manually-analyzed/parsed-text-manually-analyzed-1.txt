@@ -20,7 +20,7 @@ changes (NNS) - verb/noun +
 will (MD) - noun/verb +
 be (VB) - verb/noun +
 made (VBN) - adjective + 
-. Also (RB) - adverb - 
+. Also (RB) - adverb + 
 , the (DT) - definite article/adverb +
 languages (NNS) - noun + 
 of (IN) - preposition + 
@@ -38,7 +38,7 @@ of (IN) - preposition +
 that (DT) - pronoun/adverb/conjunction + 
 would (MD) - + 
 be (VB) - verb/noun + 
-that (IN) - pronoun/adverb/conjunction -
+that (IN) - pronoun/adverb/conjunction +
 people (NNS) - noun/verb +
 might (MD) - noun +
 communicate (VB) - verb +
@@ -46,14 +46,14 @@ much (RB) - adverb/noun/adjective +
 more (RBR) - adjective/noun/adverb +
 easily (RB) - adverb +
 . But (CC) - adverb +
-, there (EX) - adverb/noun -
+, there (EX) - adverb/noun +
 can (MD) - noun/verb +
 be (VB) - verb/noun +
 various (JJ) - adjective + 
 negative (JJ) - adjective/verb/noun +
 sides (NNS) - noun/adjective/verb + 
 in (IN) - noun/adverb/adjective +
-that (DT) - pronoun/adverb/conjunction -
+that (DT) - pronoun/adverb/conjunction +
 new (JJ) - adjective/adverb +
 standard (NN) - noun/adjective +
 . For (IN) - preposition/conjunction/noun +
@@ -108,7 +108,7 @@ destroy (VB) - verb +
 everything (NN) - +
 what (WP) - noun/adverb +
 is (VBZ) - +
-left (VBN) - noun/adjective -
+left (VBN) - noun/adjective +
 from (IN) - preposition +
 the (DT) - definite article/adverb +
 old (JJ) - adjective/noun +
@@ -116,7 +116,7 @@ English (NNP) - noun +
 . My (PRP$) - +
 opinion (NN) - noun +
 is (VBZ) - +
-that (IN) - pronoun/adverb/conjunction -
+that (IN) - pronoun/adverb/conjunction +
 it (PRP) - noun/pronoun +
 can (MD) - noun/verb +
 be (VB) - verb/noun +
@@ -138,7 +138,7 @@ damaging (VBG) - adjective +
 for (IN) - preposition/conjunction/noun +
 other (JJ) - adjective +
 languages (NNS) - noun +
-but (CC) - adverb -
+but (CC) - adverb +
 it (PRP) - noun/pronoun +
 also (RB) - adverb +
 might (MD) - noun +
@@ -168,7 +168,7 @@ neutral (JJ) - adjective/noun +
 d (RB) - noun/adjective !
 be (VB) - verb/noun +
 glad (JJ) - adjective/noun +
-, when (WRB) - -
+, when (WRB) - +
 other (JJ) - adjective +
 countries (NNS) - noun +
 would (MD) - +
@@ -185,14 +185,14 @@ makes (VBZ) - verb/noun +
 me (PRP) - noun +
 sad (JJ) - adjective +
 , because (IN) - conjunction +
-there (EX) - adverb/noun -
+there (EX) - adverb/noun +
 would (MD) - +
 be (VB) - verb/noun +
 no (DT) - noun/adverb/adjective +
 native (JJ) - adjective/noun +
 language (NN) - noun +
 anymore (RB) - adverb +
-. But (CC) - adverb -
+. But (CC) - adverb +
 in (IN) - noun/adverb/adjective +
 the (DT) - definite article/adverb +
 meantime (NN) - noun/adverb +

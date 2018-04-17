@@ -11,7 +11,7 @@ international (JJ) - adjective/noun +
 English (NNP) - noun +
 will (MD) - noun/verb +
 emerge (VB) - verb +
-, there (EX) - adverb/noun -
+, there (EX) - adverb/noun +
 might (MD) - noun + 
 be (VB) - verb/noun +
 some (DT) - adverb/adjective +
@@ -48,7 +48,7 @@ lot (NN) - noun/verb +
 more (JJR) - adjective/noun/adverb +
 easier (JJ) - +
 . In (IN) - noun/adverb/adjective +
-that (DT) - pronoun/adverb/conjunction -
+that (DT) - pronoun/adverb/conjunction +
 case (NN) - noun/verb +
 the (DT) - definite article/adverb +
 understanding (NN) - noun/adjective +
@@ -63,7 +63,7 @@ people (NNS) - noun/verb +
 would (MD) - +
 be (VB) - verb/noun +
 much (RB) - adverb/noun/adjective +
-more (RBR) - adjective/noun/adverb -
+more (RBR) - adjective/noun/adverb +
 enthusiastic (JJ) - adjective +
 about (IN) - adverb/adjective +
 learning (VBG) - noun +
@@ -98,14 +98,14 @@ situation (NN) - noun +
 is (VBZ) - +
 a (DT) - noun +
 big (JJ) - adjective/adverb +
-, but (CC) - adverb -
+, but (CC) - adverb +
 the (DT) - definite article/adverb +
 only (JJ) - adverb/adjective +
 one (NN) - adjective/noun +
 : fading (NN) - noun +
 other (JJ) - adjective +
 languages (NNS) - noun +
-. If (IN) - conjunction -
+. If (IN) - conjunction +
 most (JJS) - adverb/adjective +
 of (IN) - preposition +
 the (DT) - definite article/adverb +
@@ -147,7 +147,7 @@ time (NN) - noun/verb +
 believe (VBP) - verb +
 that (DT) - pronoun/adverb/conjunction +
 languages (VBZ) - noun -
-as (IN) - noun/adverb -
+as (IN) - noun/adverb +
 they (PRP) - pronoun +
 are (VBP) - noun +
 today (NN) - adverb/noun +
@@ -156,7 +156,7 @@ be (VB) - verb/noun +
 left (VBN) - noun/adjective +
 exactly (RB) - adverb +
 the (DT) - definite article/adverb +
-same (JJ) - noun/adjective -
+same (JJ) - noun/adjective +
 . Everything (NN) - +
 is (VBZ) - +
 working (VBG) - adjective/noun +
@@ -178,7 +178,7 @@ way (NN) - noun/adverb +
 change (NN) - verb/noun -
 something (NN) - noun +
 that (WDT) - pronoun/adverb/conjunction -
-has (VBZ) - -
+has (VBZ) - +
 been (VBN) - +
 working (VBG) - adjective/noun +
 excellent (NN) - adjective +
@@ -186,4 +186,4 @@ for (IN) - preposition/conjunction/noun +
 hundreds (NNS) - noun/adjective +
 of (IN) - preposition +
 years (NNS) - noun +
-? ) - 
+? ) - +

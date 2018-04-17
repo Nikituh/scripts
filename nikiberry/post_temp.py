@@ -4,9 +4,9 @@ import time
 import sched, time
 import get_temp
 
-server = "http://nikitech.eu/"
-controller = "Nikiberry/"
-function = "UploadTemperature"
+server = "https://nikitech.eu/"
+controller = "nikihome/"
+function = "temperature_post.php"
 url = server + controller + function
 
 hour = 60 * 60
@@ -39,12 +39,16 @@ def post_temperature(scheduler_param):
     request = requests.post(url, data = data)
     print("Response: " + request.text)
     
-    scheduler.enter(hour, 1, post_temperature, (scheduler_param,))
+    if scheduler_param is not None:
+        scheduler.enter(hour, 1, post_temperature, (scheduler_param,))
 
-print("Started temperature update script. Next upload will be in one hour")
+print("Uploading current temperature")
+post_temperature(None)
 
+print("Next upload will be in one hour")
 scheduler.enter(hour, 1, post_temperature, (scheduler,))
 scheduler.run()
+
 
 
 

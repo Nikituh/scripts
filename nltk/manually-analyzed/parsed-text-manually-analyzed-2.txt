@@ -17,7 +17,7 @@ barrier (NN) - noun +
 , that (IN) - pronoun/adverb/conjunction +
 we (PRP) - pronoun/obj/pl +
 have (VBP) - verb/noun +
-, when (WRB) - -
+, when (WRB) - +
 a (DT) - noun +
 person (NN) - noun +
 wishes (VBZ) - verb/noun +
@@ -27,7 +27,7 @@ in (IN) - noun/adverb/adjective +
 a (DT) - noun +
 foreign (JJ) - adjective +
 country (NN) - noun +
-. Unfortunatly (RB) - -
+. Unfortunatly (RB) - +
 by (IN) - adverb +
 creating (VBG) - +
 a (DT) - noun +
@@ -35,7 +35,7 @@ singel (JJ) - +
 language (NN) - noun +
 that (IN) - pronoun/adverb/conjunction +
 we (PRP) - pronoun/obj/pl +
-all (DT) - adverb/adjective -
+all (DT) - adverb/adjective +
 use (VBP) - noun/verb +
 , we (PRP) - pronoun/obj/pl +
 would (MD) - +
@@ -44,7 +44,7 @@ many (JJ) - adjective +
 in (IN) - noun/adverb/adjective +
 the (DT) - definite article/adverb +
 process (NN) - noun/verb +
-. Also (RB) - adverb -
+. Also (RB) - adverb +
 many (JJ) - adjective +
 cultures (NNS) - noun/verb +
 would (MD) - +
@@ -54,7 +54,7 @@ destroyed (VBN) - adjective +
 to (TO) - preposition +
 the (DT) - definite article/adverb +
 fact (NN) - noun +
-that (IN) - pronoun/adverb/conjunction -
+that (IN) - pronoun/adverb/conjunction +
 culture (NN) - noun/verb +
 is (VBZ) - +
 a (DT) - noun +
@@ -79,7 +79,7 @@ to (TO) - preposition +
 use (VB) - noun/verb +
 at (IN) - noun +
 any (DT) - adjective +
-given (VBN) - noun/adjective -
+given (VBN) - noun/adjective +
 time (NN) - noun/verb +
 . I (PRP) - adjective/noun +
 think (VBP) - verb/noun +
@@ -116,8 +116,8 @@ our (PRP$) - pronoun +
 heaths (NNS) - noun +
 we (PRP) - pronoun/obj/pl +
 hold (VBP) - verb/noun +
-it (PRP) - noun/pronoun -
+it (PRP) - noun/pronoun +
 dear (JJ) - noun/adjective/adverb +
 to (TO) - preposition +
 us (PRP) - noun +
-. ) - 
+. ) - +
