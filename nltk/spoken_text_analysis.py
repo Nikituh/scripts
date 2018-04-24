@@ -10,8 +10,8 @@ import nltk
 # conf.py contains configuration etc. files used both by written_text_analysis.py and spoken_text_analysis.py
 from conf import *
 
-SOURCE_FILE_NAME = "interview02txt.txt"
-PARSED_FILE_NAME = "parsed_spoken_texts.txt"
+SOURCE_FILE_NAME = "raw_texts/interview02txt.txt"
+PARSED_FILE_NAME = "output/parsed_spoken_texts.txt"
 
 # Tags for speakers in the text
 # These vary by text, are not universal
@@ -51,7 +51,7 @@ with open(SOURCE_FILE_NAME, 'r') as result_file:
 # Just to get the line count
 counter = 1
 
-parsed_lines = []
+parsed_words = []
 
 for line in parsed_raw_lines:
 
@@ -79,13 +79,15 @@ for line in parsed_raw_lines:
 		
 		result = result[1:]
 		parsed_text += result + " "
+		parsed_words.append(result)
 
-	print parsed_text
-	parsed_lines.append(parsed_text)
+# Clean out any deprecated lines
+with open(PARSED_FILE_NAME, 'w') as result_file:
+	result_file.write("")
 
 # Write texts from parsed text array to file
 with open(PARSED_FILE_NAME, 'w') as result_file:
-	for text in parsed_lines:
+	for text in parsed_words:
 		result_file.write(text + "\n")
 
 

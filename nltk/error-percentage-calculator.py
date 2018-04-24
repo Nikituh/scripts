@@ -14,12 +14,22 @@
 # <word> (<tag>) - word/api/suggestions <manual-tagging-symbol>, 
 # e.g: glad (JJ) - adjective/noun +
 
+import sys
+
+print sys.argv
+
 lines = []
 
 total_count = 0;
 correct_tag_count = 0
 
-filename = "manually-analyzed/parsed-text-manually-analyzed-4.txt"
+if len(sys.argv) < 2:
+	print "Please add a number an argument"
+	exit()
+
+filename = "manually-analyzed/parsed-text-manually-analyzed-" + sys.argv[1] + ".txt"
+
+counter = 1
 
 def get_percentage(part, whole):
   return 100 * float(part)/float(whole)
@@ -37,7 +47,7 @@ with open(filename, 'r') as file:
 		if manual_tag == "+":
 			correct_tag_count += 1
 		elif manual_tag == "-":
-			print("Incorrect tag: " + line)
+			print("Incorrect tag: " + line.replace("\n", "") + " (" + str(counter) + ")")
 		elif manual_tag == "#":
 			correct_tag_count += 1
 			# print("Nonexistant symbol: " + line)
@@ -45,7 +55,12 @@ with open(filename, 'r') as file:
 			correct_tag_count += 1
 			# print("The developer should write a better parser: " + line)
 		else:
-			print("Line: " + manual_tag)
+			print("Line: " + line)
+
+		counter += 1
+
+print("Total words: " + str(total_count))
+print("Correct tag count: " + str(correct_tag_count))
 
 percent = get_percentage(correct_tag_count, total_count)
 error_rate = 100 - percent
