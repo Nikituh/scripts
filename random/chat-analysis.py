@@ -20,7 +20,7 @@ start_time = time.time()
 # Chats are located under facebook<username>/messages/<index(int)>.html
 # The number seems to be completely random, not based on any statistic about the chat
 username = "aareundo"
-index = "584"
+index = "haip"
 path = 'facebook-' + username + '/messages/' + index + '.html'
 
 # The file itself is a self-sufficient html file, meaning it contains extra information

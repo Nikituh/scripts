@@ -43,22 +43,27 @@ for text in raw_texts:
 	tokens = nltk.word_tokenize(text)
 	tagged_array = nltk.pos_tag(tokens)
 
-	word = tagged_array[0][0]
-	tag = tagged_array[0][1]
+	words = []
+
+	word_index = 0
+	for item in tagged_array:
+		word = item[0]
+		tag = item[1]
+		words.append({ "text": word.encode('ascii','ignore'), "tag": tag, "index": word_index })
+		word_index += 1
 
 	result.append({
 		"essay_id": essay_ids[index],
-		"word": word,
-		"tag": tag
+		"words": words
 		})
 
 	index += 1
 
-print(result)
-json_result = json.dumps(result)
+# request = requests.post("https://corpus.nikitech.eu/corpus_upload.php", data = { 'data': result })
+url = "https://corpus.nikitech.eu/corpus_upload.php"
+headers = { 'Content-Type': 'application/json', 'Accept':'application/json' }
+request = requests.post(url, data=json.dumps(result), headers=headers)
 
-print(json_result)
-
-r = requests.post("http://bugs.python.org", data=json_result)
+print(request.text)
 
 
