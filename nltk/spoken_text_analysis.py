@@ -10,7 +10,7 @@ import nltk
 # conf.py contains configuration etc. files used both by written_text_analysis.py and spoken_text_analysis.py
 from conf import *
 
-SOURCE_FILE_NAME = "raw_texts/interview02txt.txt"
+SOURCE_FILE_NAME = "raw_texts/interview02txt-full.txt"
 PARSED_FILE_NAME = "output/parsed_spoken_texts.txt"
 
 # Tags for speakers in the text
