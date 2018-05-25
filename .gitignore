@@ -26,4 +26,8 @@ facebook-aareundo
 # word api key
 mashable_key
 
+# nltk raw text folder
 raw_texts
+
+# facebook chat message
+# message.json
