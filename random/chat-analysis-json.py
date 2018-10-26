@@ -79,12 +79,12 @@ with open('message.json') as f:
 
 ### SENDER:
 
-# sorted_sender_count = sorted(sender_count.items(), key=operator.itemgetter(1), reverse=True)
+sorted_sender_count = sorted(sender_count.items(), key=operator.itemgetter(1), reverse=True)
 
-# counter = 1
-# for key, value in sorted_sender_count:
-#     print(str(counter) + ". " + str(key.encode('utf-8'))[2:-1] + ": " + str(value))
-#     counter += 1
+counter = 1
+for key, value in sorted_sender_count:
+    print(str(counter) + ". " + str(key) + ": " + str(value))
+    counter += 1
 
 ### CONTENT:
 
@@ -101,17 +101,17 @@ with open('message.json') as f:
 
 ### LONGEST MESSAGE
 
-print("Longest message" + str(longest_message.length) + ": " + str(longest_message.content))
-print("Sender: " + str(longest_message.sender))
+# print("Longest message" + str(longest_message.length) + ": " + str(longest_message.content))
+# print("Sender: " + str(longest_message.sender))
 
-### AVERAGE MESSAGE LENGTH
+# ### AVERAGE MESSAGE LENGTH
 
-counter = 1
-sorted_senders = sorted(senders, key=lambda x: x.emoticon_message_count, reverse=True)
-for sender in sorted_senders:
-	# print(str(counter) + ": " + str(sender.sender).replace("b", "").replace("'", "") + ": " + str(sender.get_average()))
-	print(str(counter) + ": " + str(sender.sender).replace("b", "").replace("'", "") + ": " + str(sender.emoticon_message_count))
-	counter += 1
+# counter = 1
+# sorted_senders = sorted(senders, key=lambda x: x.emoticon_message_count, reverse=True)
+# for sender in sorted_senders:
+# 	# print(str(counter) + ": " + str(sender.sender).replace("b", "").replace("'", "") + ": " + str(sender.get_average()))
+# 	print(str(counter) + ": " + str(sender.sender).replace("b", "").replace("'", "") + ": " + str(sender.emoticon_message_count))
+# 	counter += 1
 
 
 
