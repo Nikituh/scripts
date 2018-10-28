@@ -16,7 +16,6 @@ SOURCE_EXTENSION = ".xlsx"
 DESTINATION_EXTENSION = ".json"
 
 EPOCH = datetime.datetime.utcfromtimestamp(0)
-
 # https://stackoverflow.com/questions/6999726/how-can-i-convert-a-datetime-object-to-milliseconds-since-epoch-unix-time-in-p
 def unix_time_millis(dt):
     return (dt - EPOCH).total_seconds() * 1000.0
@@ -66,7 +65,7 @@ for column in columns:
 # encoding="utf-8" requires python3:
 # brew install python3
 # pip3 install openpyxl
-with open(FILENAME + DESTINATION_EXTENSION, "w", encoding="utf-8") as file:
+with open(FILENAME + "_by_column" + DESTINATION_EXTENSION, "w", encoding="utf-8") as file:
 	json.dump(destination_content, file, indent=4, ensure_ascii=False)
 
 print("Done!")
