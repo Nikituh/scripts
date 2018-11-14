@@ -4,6 +4,9 @@
 import json
 import os
 
+MAX = 5
+MIN = 1
+
 FILENAME = "loengu-tagasiside-25.10-1"
 TYPE = "_by_row"
 
@@ -16,8 +19,10 @@ with open(FILENAME + TYPE + ".json") as f:
 lowest_performance = 5
 lowest_difficulty = 5
 
+top_score_count = 0
+lowest_score_count = 0
+
 total = len(data)
-top_notch_performance = 0
 total_performance_score = 0.0
 
 for review in data:
@@ -32,13 +37,23 @@ for review in data:
 
 
 	if performance == 5:
-		top_notch_performance += 1
+		top_score_count += 1
+
+	if performance == 2:
+		lowest_score_count += 1;
 
 	total_performance_score += performance
 
+print("Lowest difficulty: " + str(lowest_difficulty))
+print("Lowest performance : " + str(lowest_performance))
+
 print("Performance mean: " + str(total_performance_score / total))
-print("Top notch performance: " + str(get_percentage(top_notch_performance, total)) + "%")
-# print(lowest_performance)
-# print(lowest_difficulty)
+
+print("Highest performance percentage: " + str(round(get_percentage(top_score_count, total))) + "%")
+print("Lowest performance percentage: " + str(round(get_percentage(lowest_score_count, total))) + "%")
+
+
+
+
 
 
