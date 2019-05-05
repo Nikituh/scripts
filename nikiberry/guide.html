@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<!-- saved from url=(0133)http://web.archive.org/web/20170405190443/https://matthewmoisen.com/blog/how-to-use-the-ds18b20-temperature-sensor-with-raspberry-pi/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./guide_files/analytics.js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app56.us.archive.org';v.server_ms=132;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="./guide_files/ait-client-rewrite.js" charset="utf-8"></script>
+<script type="text/javascript">
+WB_wombat_Init("http://web.archive.org/web", "20170405190443", "matthewmoisen.com");
+</script>
+<script type="text/javascript" src="./guide_files/wbhack.js" charset="utf-8"></script>
+<script type="text/javascript">
+__wbhack.init('http://web.archive.org/web');
+</script>
+<link rel="stylesheet" type="text/css" href="./guide_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./guide_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+     <link rel="canonical" href="http://web.archive.org/web/20170405190443/https://matthewmoisen.com/blog/how-to-use-the-ds18b20-temperature-sensor-with-raspberry-pi/">
+    <meta name="description" content="How to Use the DS18B20 Temperature Sensor with Raspberry Pi for Brewing Beer">
+    <title>How to Use the DS18B20 Temperature Sensor with Raspberry Pi for Brewing Beer</title>
+
+    <style type="text/css">
+        body{
+            background-color: #EEEEEE;
+            margin:0px auto;
+            max-width:650px;
+            line-height:1.6;
+            font-size:18px;
+            color:#444;
+            padding:0 10px
+         }
+         h1,h2,h3{
+            line-height:1.2
+         }
+         #navigation {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #333;
+            top: 0;
+            max-width:650px;
+         }
+         #navigation li {
+            float: left;
+         }
+         #navigation li a {
+            display: block;
+            color: #EEEEEE;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+         }
+
+         /* For flask Flash messages */
+         .messages {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            overflow: hidden;
+            top: 0;
+            width:650px;
+         }
+         .messages li {
+            display: block;
+            text-align: left;
+            padding: 14px 16px;
+            border-radius: 20px;
+         }
+         .messages li.error {
+            background-color: #ffe6e6;
+            color: red;
+         }
+         .messages li.success {
+            background-color: #e6ffe6;
+            color: green;
+         }
+
+
+
+        /* For general inputs */
+          input, textarea, select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            font-size: 18px;
+        }
+
+        input[type='checkbox'] {
+            width:30px;
+            height:30px;
+
+        }
+
+
+
+        textarea {
+            height: 250px;
+
+        }
+
+        #spam-check {
+            width: 25px;
+        }
+
+        button {
+            padding: 15px 32px;
+            font-size: 18px;
+        }
+
+        img {
+            max-width: 100%;
+            heigh: auto;
+        }
+
+        pre {
+            background-color: #d9d9d9;
+            overflow:scroll;
+        }
+
+        table, td, th {
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            padding: 15px;
+        }
+        th, td {
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        #post-table a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            padding: 15px;
+         }
+
+         
+
+
+
+    </style>
+
+    
+
+<script type="text/javascript">// Promises 
+var _eid_promises = {}; 
+// Turn the incoming message from extension 
+// into pending Promise resolving 
+window.addEventListener("message", function(event) { 
+    if(event.source !== window) return; 
+    if(event.data.src && (event.data.src === "background.js")) { 
+        console.log("Page received: "); 
+        console.log(event.data); 
+        // Get the promise 
+        if(event.data.nonce) { 
+            var p = _eid_promises[event.data.nonce]; 
+            // resolve 
+            if(event.data.result === "ok") { 
+                if(event.data.signature !== undefined) { 
+                    p.resolve({hex: event.data.signature}); 
+                } else if(event.data.version !== undefined) { 
+                    p.resolve(event.data.extension + "/" + event.data.version); 
+                } else if(event.data.cert !== undefined) { 
+                    p.resolve({hex: event.data.cert}); 
+                } else { 
+                    console.log("No idea how to handle message"); 
+                    console.log(event.data); 
+                } 
+            } else { 
+                // reject 
+                p.reject(new Error(event.data.result)); 
+            } 
+            delete _eid_promises[event.data.nonce]; 
+        } else { 
+            console.log("No nonce in event msg"); 
+        } 
+    } 
+}, false); 
+ 
+ 
+function TokenSigning() { 
+    function nonce() { 
+        var val = ""; 
+        var hex = "abcdefghijklmnopqrstuvwxyz0123456789"; 
+        for(var i = 0; i < 16; i++) val += hex.charAt(Math.floor(Math.random() * hex.length)); 
+        return val; 
+    } 
+ 
+    function messagePromise(msg) { 
+        return new Promise(function(resolve, reject) { 
+            // amend with necessary metadata 
+            msg["nonce"] = nonce(); 
+            msg["src"] = "page.js"; 
+            // send message 
+            window.postMessage(msg, "*"); 
+            // and store promise callbacks 
+            _eid_promises[msg.nonce] = { 
+                resolve: resolve, 
+                reject: reject 
+            }; 
+        }); 
+    } 
+    this.getCertificate = function(options) { 
+        var msg = {type: "CERT", lang: options.lang, filter: options.filter}; 
+        console.log("getCertificate()"); 
+        return messagePromise(msg); 
+    }; 
+    this.sign = function(cert, hash, options) { 
+        var msg = {type: "SIGN", cert: cert.hex, hash: hash.hex, hashtype: hash.type, lang: options.lang, info: options.info}; 
+        console.log("sign()"); 
+        return messagePromise(msg); 
+    }; 
+    this.getVersion = function() { 
+        console.log("getVersion()"); 
+        return messagePromise({ 
+            type: "VERSION" 
+        }); 
+    }; 
+}</script></head>
+<body><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script type="text/javascript" src="./guide_files/timestamp.js" charset="utf-8"></script>
+<script type="text/javascript" src="./guide_files/graph-calc.js" charset="utf-8"></script>
+<script type="text/javascript" src="./guide_files/auto-complete.js" charset="utf-8"></script>
+<script type="text/javascript" src="./guide_files/toolbar.js" charset="utf-8"></script>
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+.wb-autocomplete-suggestions {
+    text-align: left; cursor: default; border: 1px solid #ccc; border-top: 0; background: #fff; box-shadow: -1px 1px 3px rgba(0,0,0,.1);
+    position: absolute; display: none; z-index: 2147483647; max-height: 254px; overflow: hidden; overflow-y: auto; box-sizing: border-box;
+}
+.wb-autocomplete-suggestion { position: relative; padding: 0 .6em; line-height: 23px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 1.02em; color: #333; }
+.wb-autocomplete-suggestion b { font-weight: bold; }
+.wb-autocomplete-suggestion.selected { background: #f0f0f0; }
+</style>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;">
+</div><script type="text/javascript">
+__wm.bt(600,27,25,2,"web","https://matthewmoisen.com/blog/how-to-use-the-ds18b20-temperature-sensor-with-raspberry-pi/","2017-04-05",1996,"/_static/",['css/banner-styles.css','css/iconochive.css']);
+</script><div class="wb-autocomplete-suggestions " style="left: 163px; top: 23px; width: 682px;"></div>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+    <ul id="navigation">
+        <li><a href="http://web.archive.org/web/20170405190443/https://matthewmoisen.com/">Home</a></li>
+        <li><a href="http://web.archive.org/web/20170405190443/https://matthewmoisen.com/blog/category/">Blog Categories</a></li>
+        <li><a href="http://web.archive.org/web/20170405190443/https://matthewmoisen.com/projects/">Projects</a></li>
+        <li><a href="http://web.archive.org/web/20170405190443/https://matthewmoisen.com/resume/">Résumé</a></li>
+        <li><a href="http://web.archive.org/web/20170405190443/https://matthewmoisen.com/brew/">Brewery</a></li>
+        
+        
+        
+    </ul>
+
+
+    
+    <header>
+        <h1>How to Use the DS18B20 Temperature Sensor with Raspberry Pi for Brewing Beer</h1>
+    </header>
+    
+
+    
+    
+
+
+    <p>I want to build a project where I use my RPi to measure the temperature of
+both the wort and the swamp cooler I use to ferment beer, and alert me to
+whenever I need to add ice packs (i.e., the temperature rises above 74*F for a
+certain yeast strain).  </p>
+<p>There are multiple ways to read temperature from the RPi. The most common, and
+effective, that I have come across is through the use of Arduino. However I
+have already spent so much money on the RPi that I decided to find another
+way, and <a href="http://web.archive.org/web/20170405190443/http://learn.adafruit.com/adafruits-raspberry-pi-lesson-11-ds18b20-temperature-sensing/overview">Adafruit comes through with the answer</a>.  </p>
+<p>I bought all the necessary <a href="http://web.archive.org/web/20170405190443/http://learn.adafruit.com/adafruits-raspberry-pi-lesson-11-ds18b20-temperature-sensing/parts">parts</a> from Adafruit: the
+DS18B20 temperature sensors, a half-sized breadboard, a jumper wire pack, and
+a Pi Cobbler, the last of which is Adafruit specific.  </p>
+<h2>Configuring the RPi for External Hardware via Adafruit</h2>
+<p>The following was performed by following <a href="http://web.archive.org/web/20170405190443/http://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup">Adafruit's fourth lesson, GPIO
+Setup</a>.  </p>
+<p>Adafruit has "produced an extensive and extremely useful collection of code to
+make life easy for those wishing to experiment with attaching electronics to
+their Pi."  </p>
+<p>If you don't have git, run the following:  </p>
+<pre><code>sudo apt-get update  
+sudo apt-get install git
+</code></pre>
+<p>Clone the Adafruit repository:  </p>
+<pre><code>git clone http://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code.git  
+cd Adafruit-Raspberry-Pi-Python-Code  
+ls
+</code></pre>
+<p><img alt="" src="./guide_files/yQmXGgF9ftGAAAAAElFTkSuQmCC">  </p>
+<p>Execute the following  </p>
+<pre><code>sudo apt-get update  
+sudo apt-get install python-dev  
+sudo apt-get install python-rpi.gpio
+</code></pre>
+<p>I already had python-rpi.gpio installed.  </p>
+<h2>Connecting the Hardware to the Raspberry Pi</h2>
+<p>Hook up a DS18B20 probe to the breadboard according to Adafruit's
+instructions.  </p>
+<h2>Modify /boot/config.txt</h2>
+<p>If you are using a Raspbian after 2015 you will need to edit /boot/config.txt
+with the following lines. Please refer to this
+<a href="http://web.archive.org/web/20170405190443/http://www.raspberrypi.org/forums/viewtopic.php?f=37&amp;t=98407">post</a> and this
+<a href="http://web.archive.org/web/20170405190443/http://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314">post</a> for the
+reason. If you don't do this, your /sys/bus/w1/devices directory will be
+empty.  </p>
+<pre><code>dtparam=i2c0=on  
+dtparam=spi=on  
+dtparam=is2=on  
+dtoverlay=w1-gpio
+</code></pre>
+<h2>Quick Test to See if it Works</h2>
+<p>execute the following  </p>
+<pre><code>sudo modprobe w1-gpio  
+sudo modprobe w1-therm  
+cd /sys/bus/w1/devices  
+ls  
+cd 28-xxxxxxxxxxxx ## From the ls command, find the directory starting with 28 and cd to it  
+ls  
+cat w1_slave
+</code></pre>
+<p>It appears to me that the first two lines (sudo modprobe w1-gpio ; sudo
+modprobe w1-therm) must be run every time the raspberry pi is turned on in
+order for the RPi to read the sensors.  </p>
+<p>Each DS18B20 you plug in will have its own directory in the format of
+28-xxxxxxxxxxxx.  </p>
+<p>If all is well, it will display two lines of text. The first line will either
+have a YES or NO at the very end; if you receive a NO, there was a temporary
+error, so try again; if you receive a YES, the second line will display the
+temperature in Celcius.  </p>
+<p>Here was my result:  </p>
+<pre><code>af 01 4b 46 7f ff 01 10 bc : crc=bc YES  
+af 01 4b 46 7f ff 01 10 bc t=26937
+</code></pre>
+<p>Dividing the temperature by 1000 gets you the Celsius, in my case 26.937*C.  </p>
+<p>Set the correct timezone for your raspberry pi by issuing:  </p>
+<pre><code>sudo dpkg-reconfigure tzdata
+</code></pre>
+<h2>Writing the Python code to display the Temperature every Second</h2>
+<p>This is copy and pasted form the <a href="http://web.archive.org/web/20170405190443/http://learn.adafruit.com/adafruits-raspberry-pi-lesson-11-ds18b20-temperature-sensing/software">Adafruit page</a>  </p>
+<pre><code>import os  
+import glob  
+import time
+
+os.system('modprobe w1-gpio')  
+os.system('modprobe w1-therm')
+
+base_dir = '/sys/bus/w1/devices/'  
+device_folder = glob.glob(base_dir + '28*')[0]  
+device_file = device_folder + '/w1_slave'
+
+def read_temp_raw():  
+    f = open(device_file, 'r')  
+    lines = f.readlines()  
+    f.close()  
+    return lines
+
+def read_temp():  
+    lines = read_temp_raw()  
+    while lines[0].strip()[-3:] != 'YES':  
+        time.sleep(0.2)  
+        lines = read_temp_raw()  
+    equals_pos = lines[1].find('t=')  
+    if equals_pos != -1:  
+        temp_string = lines[1][equals_pos+2:]  
+        temp_c = float(temp_string) / 1000.0  
+        temp_f = temp_c * 9.0 / 5.0 + 32.0  
+        return temp_c, temp_f
+
+while True:  
+    print(read_temp())      
+    time.sleep(1)
+</code></pre>
+<h2>Making sure the Temperature will Always be Recording (even after a power</h2>
+<p>outage)</p>
+<p>I want my RPi to be recording the temperature 24/7, and to resume recording
+the temperature after a power outage. The /etc/rvc.local file is one way of
+controlling what script executes on start up. Edit the file by issuing:  </p>
+<pre><code>sudo nano /etc/rc.local
+</code></pre>
+<p>and write the following lines before the "exit 0":  </p>
+<pre><code># Allow RPi to See Sensors  
+sudo modprobe w1-gpio  
+sudo modprobe w1-therm  
+# Run Python Script  
+/home/pi/thermometer.py
+</code></pre>
+<p>My entire /etc/rc.local file looked like this afterwards:  </p>
+<p><img alt="" src="./guide_files/wAAAAASUVORK5CYII=">  </p>
+<p>Download MySQL and install it. Change the password to something simple, like
+<strong>pi</strong>.  </p>
+<pre><code>sudo apt-get install mysql-server
+</code></pre>
+<p>Loggin to mysql and create a new database:  </p>
+<pre><code>mysql -u root -p  
+create database brew;  
+use brew;
+</code></pre>
+<p>Create a temperature table.  </p>
+<pre><code>CREATE TABLE temperature (  
+dt datetime DEFAULT NULL,  
+temperature decimal(4,1) DEFAULT NULL,  
+temperature1 decimal(4,1) DEFAULT NULL,  
+temperature2 decimal(4,2) DEFAULT NULL,  
+notes VARCHAR(200) DEFAULT NULL,  
+KEY temperature_dt_ind (dt),  
+KEY temperature_notes_ind (notes)  
+);
+</code></pre>
+<p>Create a Batch table:  </p>
+<pre><code>CREATE TABLE batch (  
+name VARCHAR(50) DEFAULT NULL,  
+material VARCHAR(10) DEFAULT NULL,  
+start_date DATE DEFAULT NULL,  
+active CHAR(1) DEFAULT 'Y',  
+end_begin_date DATE DEFAULT NULL,  
+end_end_date DATE DEFAULT NULL,  
+min_temp DOUBLE DEFAULT NULL,  
+max_temp DOUBLE DEFAULT NULL  
+);
+</code></pre>
+<p>Create a Water table:  </p>
+<pre><code>CREATE TABLE water (  
+dt DATETIME DEFAULT NULL,  
+bottle_n int(11) DEFAULT NULL,  
+notes VARCHAR(50) DEFAULT NULL,  
+KEY water_ind (dt)  
+);
+</code></pre>
+<p>I created a water table because I use a swamp cooler and wish to correlate the
+number of water bottles necessary to cool a batch, given a starting
+temperature.  </p>
+<p>The batch table records the name, start date, a range of end dates (I use 4-6
+weeks), and a range of temperatures for the optimum temperature of the batch's
+yeast.  </p>
+<p>Make sure MySQL boots on startup in case of a power failure:  </p>
+<pre><code>&lt;code&gt;sudo update-rc.d mysql enable&lt;/code&gt;
+</code></pre>
+<p>I created a python script to handle everything. Here it is:  </p>
+<pre><code>TODO ADD LATER
+</code></pre>
+<p>You may notice that some of my batches don't have a probe for the
+"temperature" column, which is the swamp cooler. For some yeast strains, and
+during certain parts of the year, I don't need a swamp cooler.  </p>
+<p>...  </p>
+<p>Python and MySQL  </p>
+<p>Issue the following to download the module:  </p>
+<pre><code>&lt;code&gt;sudo apt-get install python-mysqldb&lt;/code&gt;
+</code></pre>
+<p>Issue <strong>python</strong> to get into the interpreter, and then issue:  </p>
+<pre><code>import MySQLdb
+</code></pre>
+<p>If you see no error, then it is good.  </p>
+<p>Python and MongoDB  </p>
+<p>If you plan to use MongoDB instead of, or in conjunction (as I do) with MySQL,
+issue the following:  </p>
+<pre><code>sudo apt-get install python-pymongo
+</code></pre>
+<p>Go into python and issue <strong>import pymongo</strong> to test the installation.  </p>
+<p>Download and use Screen  </p>
+<pre><code>sudo apt-get install screen
+</code></pre>
+<p>When you are ready to run your script, issue the following:  </p>
+<pre><code>screen -S brew  
+cd /home/pi  
+python ./ temperature.py
+</code></pre>
+
+    
+    
+
+
+    
+
+    
+        <hr>
+        <h2>Comments</h2>
+        <h3> Add Comment</h3>
+        
+                
+            
+        <form action="http://web.archive.org/web/20170405190443/https://matthewmoisen.com/blog/how-to-use-the-ds18b20-temperature-sensor-with-raspberry-pi/" method="POST">
+            <p>Name <input name="comment_name" value="" type="text" placeholder="Name is required and will be displayed"></p>
+
+            <p>Email <input name="comment_email" value="" type="text" placeholder="Email is optional and is NOT displayed"></p>
+
+            <p>Comment</p>
+            <textarea name="comment_content" placeholder="Comments can use markdown syntax, but URLs and images are not permitted"></textarea>
+
+            <p>Are you human?
+            <input id="spam-check" name="spam_check" type="text"> * five = 45 </p>
+            <button type="submit">Submit</button>
+        </form>
+        <hr>
+        
+    
+
+
+
+
+<!--
+playback timings (ms):
+  LoadShardBlock: 35.728 (3)
+  esindex: 0.007
+  captures_list: 59.045
+  CDXLines.iter: 11.508 (3)
+  PetaboxLoader3.datanode: 69.352 (4)
+  exclusion.robots: 0.254
+  exclusion.robots.policy: 0.244
+  RedisCDXSource: 9.1
+  PetaboxLoader3.resolve: 20.711
+  load_resource: 56.658
+--><div id="viewPortSize" class="bottom_right" style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); font-size: 12px; opacity: 0.0269573;">Inner: 1859 x 1011<br>Outer: 1859 x 1171</div><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>
