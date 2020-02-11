@@ -18,7 +18,13 @@ class Message:
     	
 		if "content" in json:
 			message.content = json["content"]
-    	
+		elif "photos" in json:
+			message.content = "<photos>"
+		elif "sticker" in json:
+			message.content = "<sticker>"
+		elif "gif" in json:
+			message.content = "<gif>"
+
 		if "reactions" in json:
 			message.reactions = Reaction.list_from_json(json["reactions"])
 		else:
@@ -93,15 +99,22 @@ for message in messages:
 
 sorted_reaction_count = sorted(reactions.items(), key=operator.itemgetter(1), reverse=True)
 
+# counter = 1
+# for key, value in sorted_reaction_count:
+# 	print(str(counter) + ". " + reaction_map[key] + ": " + str(value))
+# 	counter += 1
+
+# Find messages with highest reaction count
+
+sorted_messages_by_reaction_count = sorted(messages, key=lambda x: len(x.reactions), reverse=True)
+
 counter = 1
-for key, value in sorted_reaction_count:
-	print(str(counter) + ". " + reaction_map[key] + ": " + str(value))
+for message in sorted_messages_by_reaction_count:
+	# print(message)
+	print(str(counter) + ". " + message.sender_name + ": " + message.content + " (" + str(len(message.reactions)) + ")")
 	counter += 1
-
-
-
-
-
+	if (counter == 21):
+		break
 
 
 
