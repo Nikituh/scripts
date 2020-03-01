@@ -15,8 +15,10 @@ class Message:
 		message.sender_name = json["sender_name"]
 		message.timestamp_ms = json["timestamp_ms"]
 		message.type = json["type"]
-    	
+		message.has_content = False
+
 		if "content" in json:
+			message.has_content = True
 			message.content = json["content"]
 		elif "photos" in json:
 			message.content = "<photos>"
@@ -107,10 +109,10 @@ sorted_reaction_count = sorted(reactions.items(), key=operator.itemgetter(1), re
 # Find messages with highest reaction count
 
 sorted_messages_by_reaction_count = sorted(messages, key=lambda x: len(x.reactions), reverse=True)
+sorted_content_messages_by_reaction_count = filter(lambda x: x.has_content, sorted_messages_by_reaction_count)
 
 counter = 1
-for message in sorted_messages_by_reaction_count:
-	# print(message)
+for message in sorted_content_messages_by_reaction_count:
 	print(str(counter) + ". " + message.sender_name + ": " + message.content + " (" + str(len(message.reactions)) + ")")
 	counter += 1
 	if (counter == 21):
