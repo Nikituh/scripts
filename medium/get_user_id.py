@@ -1,11 +1,7 @@
 import requests
+import conf
 
-
-########################
-# keep your tokens here
-########################
-token = "" 
-########################
+token = conf.INTEGRATION_TOKEN
 
 # End point for yout requests
 url = "https://api.medium.com/v1"

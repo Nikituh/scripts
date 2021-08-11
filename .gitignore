@@ -44,3 +44,5 @@ ut/texts-ma/
 messages/
 
 .spotify_credentials
+
+medium/conf.py
