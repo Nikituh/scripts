@@ -26,6 +26,8 @@ class Message:
 			message.content = "<sticker>"
 		elif "gif" in json:
 			message.content = "<gif>"
+		else:
+			message.content = None
 
 		if "reactions" in json:
 			message.reactions = Reaction.list_from_json(json["reactions"])
@@ -53,14 +55,16 @@ class Reaction:
 # Read and parse messages from files
 messages = []
 
-for i in range(1, 18):
+for i in range(1, 20):
+	print(i)
 	with open("messages/message_" + str(i) + ".json") as f:
 		data = json.load(f)
 		messages_json = data["messages"]
 
 	for message_json in messages_json:
 		message = Message.from_json(message_json)
-		messages.append(message)
+		if (message.content == "<photos>"):
+			messages.append(message)
 
 # Group messages by sender, print top
 messages_by_sender = {}
@@ -73,10 +77,22 @@ for message in messages:
 
 sorted_sender_count = sorted(messages_by_sender.items(), key=operator.itemgetter(1), reverse=True)
 
-# counter = 1
-# for key, value in sorted_sender_count:
-#     print(str(counter) + ". " + str(key) + ": " + str(value))
-#     counter += 1
+counter = 1
+for key, value in sorted_sender_count:
+    print(str(counter) + ". " + str(key) + ": " + str(value))
+    counter += 1
+
+print("before")
+exit()
+print("after")
+
+last_message = 0
+for message in messages:
+	if message.sender_name == "Kaur Pai":
+		if last_message < message.timestamp_ms:
+			last_message = message.timestamp_ms
+print(last_message)
+
 
 # Group reactions, print top
 reaction_map = {
