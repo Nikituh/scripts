@@ -3,7 +3,7 @@ import requests
 import conf
 from pathlib import Path
 
-post = Path("posts/test.md").read_text()
+post = Path("posts/01-react-blog.md").read_text()
 
 data = {
     "title": "<add-clever-title-for-preview",
