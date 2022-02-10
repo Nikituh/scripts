@@ -9,3 +9,5 @@ An edit decision list or EDL is used in the post-production process of film edit
 Video editors (the people) currently need to manually write down the the music they use in their videos into an Excel file (in order to pay licensing fees). That's dumb. However, Adobe Premiere allows the user to extract the .edl files that feature all the necessary information (artist, song, label, duration).
 
 This script parses .edl files into .xlsx files, as best as it can. It extracts the artist, song, label, duration, dumps other unnecessary data and nicely writes them into an Excel file.
+
+
