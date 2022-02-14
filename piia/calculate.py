@@ -35,7 +35,7 @@ for row in range(START_ROW, worksheet.max_row):
     # Loop over columns, starting from first species column til the max constant
     for column in range(START_COL, MAX_SPECIES_COL):
         species = worksheet[row][column].value
-        if species == None:
+        if species == None or species == "" or species.isspace():
             # If the value for cell is 'None', it's empty. Break out of this loop
             break
         result.species_list.append(species.strip())
