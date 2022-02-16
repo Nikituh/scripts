@@ -119,14 +119,22 @@ def numeric(input):
 		if stripped == "apofüüt" or stripped == "antropofüüt":
 			return 3
 
-		if stripped == "paiguti" or stripped == "hajusalt" or stripped == "haruldane":
+		if stripped == "haruldane":
 			return 1
-		if stripped == "tavaline":
+		if stripped == "paiguti" or stripped == "hajusalt":
 			return 2
-		if stripped == "sage":
+		if stripped == "tavaline":
 			return 3
+		if stripped == "sage":
+			return 4
+
 
 	return float(input)
+
+def increment(input):
+	if input == None:
+		return 0
+	return input + 1
 
 for item in data:
 	
@@ -159,7 +167,12 @@ for item in data:
 			wetland_total += 1
 
 		human_tolerance_total     += numeric(plant.human_tolerance)
-		frequency_total           += numeric(plant.frequency)
+		
+		if item.row_nr < 588:
+			# Increment 2021 values because those do not account for "rare finds", which is the new '1'
+			frequency_total       += increment(plant.frequency)
+		else:
+			frequency_total       += numeric(plant.frequency)
 		
 		if plant.border_proportion == "yes":
 			border_proportion_total += 1
@@ -167,7 +180,7 @@ for item in data:
 			conservation_status_total += 1
 		if plant.red_book == "yes":
 			red_book_total += 1
-		
+
 		average_height_total      += numeric(plant.average_height)
 		max_height_total          += numeric(plant.max_height)
 
