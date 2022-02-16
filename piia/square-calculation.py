@@ -11,7 +11,8 @@ worksheet = workbook.active
 # First gather all types into an object. This is a simple sheet, no need to define constants
 type_sheet = workbook["elupaigatüüp_19"]
 type_dict = {}
-for row in range(1, type_sheet.max_row + 1):
+type_rows_total = type_sheet.max_row
+for row in range(1, type_rows_total + 1):
 	id = type_sheet[row][0].value
 	type = type_sheet[row][1].value
 	type_dict[id] = type
@@ -23,11 +24,16 @@ PLANT_LISTING_COL_LEGACY = 0
 PLANT_LISTING_COL = 1
 
 for row in range(REPLACE_ID_START_ROW, MAX_ROW + 1):
+	sys.stdout.write("\r")
+	sys.stdout.write("Replacing legacy field name: " + str(row) + "/" + str(MAX_ROW))
+	sys.stdout.flush()
+	
 	a_value = worksheet[row][PLANT_LISTING_COL_LEGACY].value
 	if a_value is not None and a_value.startswith("2019"):
 		worksheet[row][PLANT_LISTING_COL].value = a_value
 		worksheet[row][PLANT_LISTING_COL_LEGACY].value = None
 
+sys.stdout.write("\n")
 
 BOX_CALCULATION_START_ROW = 43
 
@@ -40,7 +46,7 @@ item.plants = []
 for row in range(BOX_CALCULATION_START_ROW, MAX_ROW + 1):
 
 	sys.stdout.write("\r")
-	sys.stdout.write("Processing row: " + str(row) + "/" + str(MAX_ROW))
+	sys.stdout.write("Processing row data: " + str(row) + "/" + str(MAX_ROW))
 	sys.stdout.flush()
 
 	heading_text = worksheet[row][PLANT_LISTING_COL].value
