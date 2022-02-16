@@ -43,6 +43,7 @@ data = []
 item = types.SimpleNamespace()
 item.plants = []
 
+initial = True
 for row in range(BOX_CALCULATION_START_ROW, MAX_ROW + 1):
 
 	sys.stdout.write("\r")
@@ -51,10 +52,17 @@ for row in range(BOX_CALCULATION_START_ROW, MAX_ROW + 1):
 
 	heading_text = worksheet[row][PLANT_LISTING_COL].value
 
+	if initial:
+		item.id = worksheet[row][1].value
+		item.row_nr = row
+		initial = False
+
 	if heading_text is not None and heading_text.startswith("20"):
 		# If it starts with '20', it's a new object start row.
 		# Add current iteration object to result and clear previous item data collected
-		data.append(item)
+		if len(item.plants) != 0:
+			# Only add item if plants have been added, else there's no point. Happesn on inital row
+			data.append(item)
 
 		item = types.SimpleNamespace()
 		item.plants = []
@@ -69,7 +77,7 @@ for row in range(BOX_CALCULATION_START_ROW, MAX_ROW + 1):
 		plant.habitat             = worksheet[row][2].value
 		plant.human_tolerance     = worksheet[row][3].value
 		plant.frequency           = worksheet[row][4].value
-		plant.border_propoertion  = worksheet[row][5].value
+		plant.border_proportion   = worksheet[row][5].value
 		plant.conservation_status = worksheet[row][6].value
 		plant.red_book            = worksheet[row][7].value
 		plant.average_height      = worksheet[row][8].value
@@ -92,13 +100,102 @@ CONSERV_STATUS_COL  = 22
 RED_BOOK_COL        = 23
 AVERAGE_HEIGHT_COL  = 24
 MAX_HEIGHT_COL      = 25
-EST_END             = 26
+EST_END_COL         = 26
 EST_BEGIN_COL       = 27
 EST_PERSISTENCE_COL = 28
 
-print(len(data))
+def numeric(input):
+	if input == None:
+		return 0
+
+	if isinstance(input, str):
+
+		stripped = input.strip()
+
+		if stripped == "hemerofoob":
+			return 1
+		if stripped == "hemeradiafoor":
+			return 2
+		if stripped == "apofüüt" or stripped == "antropofüüt":
+			return 3
+
+		if stripped == "paiguti" or stripped == "hajusalt" or stripped == "haruldane":
+			return 1
+		if stripped == "tavaline":
+			return 2
+		if stripped == "sage":
+			return 3
+
+	return float(input)
+
 for item in data:
-	print(str(item))
+	
+	row = worksheet[item.row_nr]
+
+	grassland_total           = 0
+	forest_total              = 0
+	wetland_total             = 0
+
+	human_tolerance_total     = 0
+	frequency_total           = 0
+	border_proportion_total   = 0
+	conservation_status_total = 0
+	red_book_total            = 0
+	average_height_total      = 0
+	max_height_total          = 0
+
+	est_end_total             = 0
+	est_begin_total           = 0
+	est_persistence_total     = 0
+	
+	for plant in item.plants:
+
+
+		if plant.habitat == "niit":
+			grassland_total += 1
+		elif plant.habitat == "mets":
+			forest_total += 1
+		elif plant.habitat == "märgala":
+			wetland_total += 1
+
+		human_tolerance_total     += numeric(plant.human_tolerance)
+		frequency_total           += numeric(plant.frequency)
+		
+		if plant.border_proportion == "yes":
+			border_proportion_total += 1
+		if plant.conservation_status == "yes":
+			conservation_status_total += 1
+		if plant.red_book == "yes":
+			red_book_total += 1
+		
+		average_height_total      += numeric(plant.average_height)
+		max_height_total          += numeric(plant.max_height)
+
+		est_end_total             += numeric(plant.est_end)
+		est_begin_total           += numeric(plant.est_begin)
+		est_persistence_total     += numeric(plant.est_persistence)
+
+	count = len(item.plants)
+
+	if item.id.startswith("2019"):
+		row[ENVIRONMENT_COL].value = item.environment
+
+	row[IDENTIFIER_COL].value = item.id
+	
+	row[GRASSLAND_COL].value = grassland_total / count
+	row[FOREST_COL].value = forest_total / count
+	row[WETLAND_COL].value = wetland_total / count
+	
+	row[HUMAN_TOLERANCE_COL].value = human_tolerance_total / count
+	row[FREQUENCE_COL].value = frequency_total / count
+	row[PROPORTION_COL].value = border_proportion_total / count
+	row[CONSERV_STATUS_COL].value = conservation_status_total / count
+	row[RED_BOOK_COL].value = red_book_total / count
+	row[AVERAGE_HEIGHT_COL].value = average_height_total / count
+	row[MAX_HEIGHT_COL].value = max_height_total / count
+	row[EST_END_COL].value = est_end_total / count
+	row[EST_BEGIN_COL].value = est_begin_total / count
+	row[EST_PERSISTENCE_COL].value = est_persistence_total / count
 
 workbook.save(FILENAME + "-output.xlsx")
 
