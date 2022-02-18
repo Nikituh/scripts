@@ -49,10 +49,15 @@ medium/conf.py
 
 leia-catering.json
 
+# Excel temporary files
+~$*
+
 piia/file.xlsx
 piia/draft.xlsx
 
 piia/ruutude-arvutus-piiale-veebr2022-output.xlsx
 piia/ruutude-arvutus-piiale-veebr2022.xlsx
 
+piia/ruutude-arvutus-piiale-veebr2022-v2.xlsx
+piia/ruutude-arvutus-piiale-veebr2022-v2-output.xlsx
 

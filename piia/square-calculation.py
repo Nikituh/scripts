@@ -3,7 +3,7 @@ from openpyxl import load_workbook
 import types
 import sys
 
-FILENAME = "ruutude-arvutus-piiale-veebr2022"
+FILENAME = "ruutude-arvutus-piiale-veebr2022-v2"
 
 workbook = load_workbook(filename = FILENAME + ".xlsx")
 worksheet = workbook.active
@@ -50,6 +50,12 @@ for row in range(BOX_CALCULATION_START_ROW, MAX_ROW + 1):
 	sys.stdout.write("Processing row data: " + str(row) + "/" + str(MAX_ROW))
 	sys.stdout.flush()
 
+	# Set 0-values of columns I-M to blank
+	for column in range (8, 13):
+		cell = worksheet[row][column]
+		if cell.value == 0:
+			cell.value = ""
+
 	heading_text = worksheet[row][PLANT_LISTING_COL].value
 
 	if initial:
@@ -61,7 +67,7 @@ for row in range(BOX_CALCULATION_START_ROW, MAX_ROW + 1):
 		# If it starts with '20', it's a new object start row.
 		# Add current iteration object to result and clear previous item data collected
 		if len(item.plants) != 0:
-			# Only add item if plants have been added, else there's no point. Happesn on inital row
+			# Only add item if plants have been added, else there's no point. Happens on inital row
 			data.append(item)
 
 		item = types.SimpleNamespace()
@@ -71,7 +77,7 @@ for row in range(BOX_CALCULATION_START_ROW, MAX_ROW + 1):
 		if item.id.startswith("2019"):
 			# Only 2019 environments exist in type sheet, and the only ones necessary as well
 			item.environment = type_dict[item.id]
-		
+	
 	elif heading_text is not None:
 		plant = types.SimpleNamespace()
 		plant.habitat             = worksheet[row][2].value
@@ -112,29 +118,36 @@ def numeric(input):
 
 		stripped = input.strip()
 
-		if stripped == "hemerofoob":
-			return 1
-		if stripped == "hemeradiafoor":
-			return 2
-		if stripped == "apofüüt" or stripped == "antropofüüt":
-			return 3
+		if stripped == "":
+			return 0
 
-		if stripped == "haruldane":
-			return 1
-		if stripped == "paiguti" or stripped == "hajusalt":
-			return 2
+		if stripped == "yes":
+			return 1.0
+		if stripped == "no":
+			return 0.0
+
+		if stripped == "LK3" or stripped == "PR3":
+			return 1.0
+
+		if stripped == "hemerofoob":
+			return 1.0
+		if stripped == "hemeradiafoor":
+			return 2.0
+		if stripped == "apofüüt" or stripped == "antropofüüt":
+			return 3.0
+
+		if stripped == "haruldane" or stripped == "paiguti" or stripped == "hajusalt":
+			return 1.0
 		if stripped == "tavaline":
-			return 3
+			return 2.0
 		if stripped == "sage":
-			return 4
+			return 3.0
 
 
 	return float(input)
 
-def increment(input):
-	if input == None:
-		return 0
-	return input + 1
+def divide(source, divider):
+	return round(float(source / divider), 3)
 
 for item in data:
 	
@@ -167,20 +180,11 @@ for item in data:
 			wetland_total += 1
 
 		human_tolerance_total     += numeric(plant.human_tolerance)
+		frequency_total           += numeric(plant.frequency)
+		border_proportion_total   += numeric(plant.border_proportion)
+		conservation_status_total += numeric(plant.conservation_status)
+		red_book_total            += numeric(plant.red_book)
 		
-		if item.row_nr < 588:
-			# Increment 2021 values because those do not account for "rare finds", which is the new '1'
-			frequency_total       += increment(plant.frequency)
-		else:
-			frequency_total       += numeric(plant.frequency)
-		
-		if plant.border_proportion == "yes":
-			border_proportion_total += 1
-		if plant.conservation_status == "yes":
-			conservation_status_total += 1
-		if plant.red_book == "yes":
-			red_book_total += 1
-
 		average_height_total      += numeric(plant.average_height)
 		max_height_total          += numeric(plant.max_height)
 
@@ -188,30 +192,31 @@ for item in data:
 		est_begin_total           += numeric(plant.est_begin)
 		est_persistence_total     += numeric(plant.est_persistence)
 
-	count = len(item.plants)
+	count = float(len(item.plants))
 
 	if item.id.startswith("2019"):
 		row[ENVIRONMENT_COL].value = item.environment
 
 	row[IDENTIFIER_COL].value = item.id
 	
-	row[GRASSLAND_COL].value = grassland_total / count
-	row[FOREST_COL].value = forest_total / count
-	row[WETLAND_COL].value = wetland_total / count
+	row[GRASSLAND_COL].value = divide(grassland_total, count)
+	row[FOREST_COL].value = divide(forest_total, count)
+	row[WETLAND_COL].value = divide(wetland_total, count)
 	
-	row[HUMAN_TOLERANCE_COL].value = human_tolerance_total / count
-	row[FREQUENCE_COL].value = frequency_total / count
-	row[PROPORTION_COL].value = border_proportion_total / count
-	row[CONSERV_STATUS_COL].value = conservation_status_total / count
-	row[RED_BOOK_COL].value = red_book_total / count
-	row[AVERAGE_HEIGHT_COL].value = average_height_total / count
-	row[MAX_HEIGHT_COL].value = max_height_total / count
-	row[EST_END_COL].value = est_end_total / count
-	row[EST_BEGIN_COL].value = est_begin_total / count
-	row[EST_PERSISTENCE_COL].value = est_persistence_total / count
+	row[HUMAN_TOLERANCE_COL].value = divide(human_tolerance_total, count)
+	row[FREQUENCE_COL].value = divide(frequency_total, count)
+	row[PROPORTION_COL].value = divide(border_proportion_total, count)
+	row[CONSERV_STATUS_COL].value = divide(conservation_status_total, count)
+	row[RED_BOOK_COL].value = divide(red_book_total, count)
+	row[AVERAGE_HEIGHT_COL].value = divide(average_height_total, count)
+	row[MAX_HEIGHT_COL].value = divide(max_height_total, count)
+	row[EST_END_COL].value = divide(est_end_total, count)
+	row[EST_BEGIN_COL].value = divide(est_begin_total, count)
+	row[EST_PERSISTENCE_COL].value = divide(est_persistence_total, count)
 
 workbook.save(FILENAME + "-output.xlsx")
 
+sys.stdout.write("\n")
 print("Done! Processed " + str(MAX_ROW) + " rows")
 
 
