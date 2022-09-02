@@ -20,6 +20,8 @@ for i in range(1, len(data)):
   entry = data[i]
   for j in range(2, len(entry)):
   	score = entry[j]
+  	users[j]["score"] = score
+
   	if score is not None:
   		users[j]["count"] += 1
   		users[j]["total"] += score
