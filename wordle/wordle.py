@@ -16,15 +16,25 @@ for user in userEntry:
 		"name": user
 	})
 
-for i in range(1, len(data)):
-  entry = data[i]
-  for j in range(2, len(entry)):
-  	score = entry[j]
-  	users[j]["score"] = score
 
-  	if score is not None:
-  		users[j]["count"] += 1
-  		users[j]["total"] += score
+fullParticipation = []
+for i in range(1, len(data)):
+	entry = data[i]
+	if None in entry:
+		continue
+	fullParticipation.append(entry)
+
+#for i in range(0, len(fullParticipation)):
+#	entry = fullParticipation[i]
+for i in range(1, len(data)):
+	entry = data[i]
+	for j in range(2, len(entry)):
+		score = entry[j]
+		
+		print(str(users[j]) + ": " + str(score))
+		if score is not None:
+			users[j]["count"] += 1
+			users[j]["total"] += score
 
 longest_name_len = 0
 
