@@ -24,17 +24,17 @@ for i in range(1, len(data)):
 		continue
 	fullParticipation.append(entry)
 
-#for i in range(0, len(fullParticipation)):
-#	entry = fullParticipation[i]
-for i in range(1, len(data)):
-	entry = data[i]
+for i in range(0, len(fullParticipation)):
+	entry = fullParticipation[i]
+#for i in range(1, len(data)):
+#	entry = data[i]
 	for j in range(2, len(entry)):
 		score = entry[j]
-		
-		print(str(users[j]) + ": " + str(score))
 		if score is not None:
 			users[j]["count"] += 1
 			users[j]["total"] += score
+			if users[j]["name"] == "tiit":
+				print(score)
 
 longest_name_len = 0
 
@@ -58,3 +58,11 @@ for i in range(0, len(sorted_users)):
 	count = str(user["count"]).ljust(3)
 	
 	print(place + name + " average score: " + average + " in " + count + " attempts")
+
+
+users = data[0]
+latest = data[len(data) - 1]
+
+print(users)
+for i in range(2, len(users)):
+	print(users[i] + ": " + str(latest[i]))
