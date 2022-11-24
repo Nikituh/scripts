@@ -24,8 +24,23 @@ for i in range(1, len(data)):
 		continue
 	fullParticipation.append(entry)
 
-for i in range(0, len(fullParticipation)):
-	entry = fullParticipation[i]
+topParticipation = []
+for i in range(1, len(data)):
+	entry = data[i]
+	print(entry)
+	ffy = 2
+	ints = 4
+	Niki = 8
+	S6jalammas = 9
+	tiit = 11
+	if entry[ffy] is not None and entry[ints] is not None and entry[Niki] is not None and entry[S6jalammas] is not None and entry[tiit] is not None:
+		topParticipation.append(entry)
+
+
+#for i in range(0, len(fullParticipation)):
+#	entry = fullParticipation[i]
+for i in range(0, len(topParticipation)):
+	entry = topParticipation[i]
 #for i in range(1, len(data)):
 #	entry = data[i]
 	for j in range(2, len(entry)):
@@ -33,8 +48,6 @@ for i in range(0, len(fullParticipation)):
 		if score is not None:
 			users[j]["count"] += 1
 			users[j]["total"] += score
-			if users[j]["name"] == "tiit":
-				print(score)
 
 longest_name_len = 0
 
