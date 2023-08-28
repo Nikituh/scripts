@@ -1,8 +1,16 @@
 
 import requests
 
+from model import Wordles
+
 resp = requests.get(url="https://pikma.ee/wordles/wordles.json")
 data = resp.json()
+
+parsed = Wordles.from_json(data)
+for wordle in parsed:
+	print(wordle.__dict__)
+
+exit()
 
 userEntry = data[0]
 
@@ -16,7 +24,6 @@ for user in userEntry:
 		"name": user
 	})
 
-
 fullParticipation = []
 for i in range(1, len(data)):
 	entry = data[i]
@@ -27,7 +34,6 @@ for i in range(1, len(data)):
 topParticipation = []
 for i in range(1, len(data)):
 	entry = data[i]
-	print(entry)
 	ffy = 2
 	ints = 4
 	Niki = 8
@@ -36,11 +42,22 @@ for i in range(1, len(data)):
 	if entry[ffy] is not None and entry[ints] is not None and entry[Niki] is not None and entry[S6jalammas] is not None and entry[tiit] is not None:
 		topParticipation.append(entry)
 
+latest7Participation = []
+for i in range(len(data) - 7, len(data)):
+	entry = data[i]
+	print(entry)
+	if None in entry:
+		continue
+	latest7Participation.append(entry)
 
-#for i in range(0, len(fullParticipation)):
-#	entry = fullParticipation[i]
-for i in range(0, len(topParticipation)):
-	entry = topParticipation[i]
+print(latest7Participation)
+
+for i in range(0, len(latest7Participation)):
+	entry = latest7Participation[i]
+# for i in range(0, len(fullParticipation)):
+# 	entry = fullParticipation[i]
+# for i in range(0, len(topParticipation)):
+# 	entry = topParticipation[i]
 #for i in range(1, len(data)):
 #	entry = data[i]
 	for j in range(2, len(entry)):
@@ -62,6 +79,8 @@ for user in users:
 sorted_users = sorted(users, key=lambda d: d["average"], reverse=False)
 sorted_users = [x for x in sorted_users if x["average"] != -1]
 
+print(sorted_users)
+
 for i in range(0, len(sorted_users)):
 	user = sorted_users[i]
 
@@ -79,3 +98,7 @@ latest = data[len(data) - 1]
 print(users)
 for i in range(2, len(users)):
 	print(users[i] + ": " + str(latest[i]))
+
+
+
+
