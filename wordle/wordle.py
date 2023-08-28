@@ -7,8 +7,46 @@ resp = requests.get(url="https://pikma.ee/wordles/wordles.json")
 data = resp.json()
 
 parsed = Wordles.from_json(data)
-for wordle in parsed:
-	print(wordle.__dict__)
+
+player_averages = []
+
+for index in range(len(parsed) - 8, len(parsed) - 1):
+	wordle = parsed[index]
+
+	for player in wordle.players:
+		
+		player_average = next((x for x in player_averages if x["name"] == player.name), None)
+
+		if player_average == None:
+			entry = { "name": player.name, "total": 0, "count": 0 }
+			if player.score != None:
+				entry["total"] = player.score
+				entry["count"] = 1
+
+			player_averages.append(entry)
+		else:
+			if player.score != None:
+				player_average["total"] = player_average["total"] + player.score
+				player_average["count"] = player_average["count"] + 1
+
+
+for player in player_averages:
+	if player["count"] != 0:
+		player["average"] = player["total"] / player["count"]
+	else:
+		player["average"] = 0
+
+sorted_users = sorted(player_averages, key=lambda d: d["average"], reverse=False)
+
+for i in range(0, len(sorted_users)):
+	user = sorted_users[i]
+
+	place = (str(i + 1) + ". ") if i > 8 else (" " + str(i + 1) + ". ")
+	name = user["name"].ljust(5)
+	average = str(user["average"]).ljust(4)
+	count = str(user["count"]).ljust(3)
+	
+	print(place + name + " average score: " + average + " in " + count + " attempts")
 
 exit()
 

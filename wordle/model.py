@@ -26,26 +26,23 @@ class Wordle:
 
 		for index in range(2, len(player_names)):
 			name = player_names[index]
-			player = Player(index, name)
+			score = data[index]
+			player = Player(index, name, score)
 			players.append(player)
 
 		wordle = Wordle()
 		wordle.id = data[0]
 
-		for index in range(2, len(players)):
-			player = players[index]
-			player.score = data[index]
-		
 		wordle.players = players
 
 		return wordle
 
 
 class Player:
-	def __init__(self, index, name):
+	def __init__(self, index, name, score):
 		self.index = index
 		self.name = name
-		self.score = -1
+		self.score = score
 
 	def __repr__(self):
 		return "{ index: " + str(self.index) + " name: " + self.name + " score: " + str(self.score) + " }"
