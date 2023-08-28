@@ -36,15 +36,16 @@ for player in player_averages:
 	else:
 		player["average"] = 0
 
-sorted_users = sorted(player_averages, key=lambda d: d["average"], reverse=False)
+cleaned_list = filter(lambda x: x["average"] != 0, player_averages)
+sorted_users = sorted(cleaned_list, key=lambda d: d["average"], reverse=False)
 
 for i in range(0, len(sorted_users)):
 	user = sorted_users[i]
 
 	place = (str(i + 1) + ". ") if i > 8 else (" " + str(i + 1) + ". ")
-	name = user["name"].ljust(5)
-	average = str(user["average"]).ljust(4)
-	count = str(user["count"]).ljust(3)
+	name = user["name"].ljust(len("good_luck_indrek"))
+	average = str(round(user["average"], 2)).ljust(4)
+	count = str(user["count"])
 	
 	print(place + name + " average score: " + average + " in " + count + " attempts")
 
