@@ -1,24 +1,20 @@
 import React from 'react';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component<any, any> {
+
+	override async componentDidMount(): Promise<void> {
+		const response = await fetch("data/et_5words.txt");
+		const text = await response.text();
+		const words = text.split("\n")
+		console.log("words", words);
+	}
+
+	override render(): React.ReactNode {
+		return (
+			<div>
+
+			</div>
+		);
+	}
+
 }
-
-export default App;
