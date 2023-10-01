@@ -1,5 +1,9 @@
 import React from 'react';
-import WordCalculator from './utils/WordCalculator';
+import WordCalculator from './service/WordCalculator';
+import LetterRow from './views/LetterRow';
+import Colors from './utils/colors';
+import LetterBox from './views/LetterBox';
+import Size from './utils/size';
 
 export default class App extends React.Component<any, any> {
 
@@ -28,9 +32,24 @@ export default class App extends React.Component<any, any> {
 	}
 
 	override render(): React.ReactNode {
-		return (
-			<div>
 
+		// Calculation contains an extra -margin to account for text padding inside the input
+		const rowWidth = 5 * (Size.LetterBoxWidth + Size.LetterBoxMargin) - 2 * Size.LetterBoxMargin;
+
+		return (
+			<div style={{
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "center",
+				height: "100vh",
+				width: "100vw",
+				paddingTop: 100
+			}}>
+				<LetterRow color={Colors.Correct} />
+				<div style={{ height: 5 }}></div>
+				<LetterRow color={Colors.Present} />
+				<div style={{ height: 5 }}></div>
+				<LetterBox color={Colors.Missing} width={rowWidth} />
 			</div>
 		);
 	}
