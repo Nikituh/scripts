@@ -31,6 +31,18 @@ export default class App extends React.Component<any, any> {
 		console.log("filtered words", filtered);
 	}
 
+	onCorrectLetterChange(index: number, letters: string[]) {
+		console.log("onCorrectLetterChange", index, letters);
+	}
+
+	onPresentLetterChange(index: number, letters: string[]) {
+		console.log("onPresentLetterChange", index, letters)
+	}
+
+	onMissingLetterChange(index: number, letters: string[]) {
+		console.log("onMissingLetterChange", letters)
+	}
+
 	override render(): React.ReactNode {
 
 		// Calculation contains an extra -margin to account for text padding inside the input
@@ -45,11 +57,11 @@ export default class App extends React.Component<any, any> {
 				width: "100vw",
 				paddingTop: 100
 			}}>
-				<LetterRow color={Colors.Correct} />
+				<LetterRow color={Colors.Correct} onLetterChange={this.onCorrectLetterChange} />
 				<div style={{ height: 5 }}></div>
-				<LetterRow color={Colors.Present} />
+				<LetterRow color={Colors.Present} onLetterChange={this.onPresentLetterChange} />
 				<div style={{ height: 5 }}></div>
-				<LetterBox color={Colors.Missing} width={rowWidth} />
+				<LetterBox color={Colors.Missing} width={rowWidth} onChange={this.onMissingLetterChange} />
 			</div>
 		);
 	}

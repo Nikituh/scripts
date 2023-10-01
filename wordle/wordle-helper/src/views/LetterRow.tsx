@@ -8,7 +8,7 @@ export default class LetterRow extends React.Component<any, any> {
         return (
             <div style={{display: "flex"}}>
                 {Array(5).fill(1).map((el, i) =>
-                    <LetterBox key={i} color={this.props.color} />
+                    <LetterBox key={i} index={i} color={this.props.color} onChange={this.props.onLetterChange} />
                 )}
             </div>
         )
