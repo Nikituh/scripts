@@ -74,8 +74,11 @@ export default class WordCalculator {
 			if (!il || !il.letters) {
 				continue;
 			}
-			if (!WordCalculator.containsAtIndex(letters, il.letters[0], il.index)) {
-				return false;
+
+			for (let j = 0; j < il.letters.length; j++) {
+				if (!WordCalculator.containsAtIndex(letters, il.letters[j], il.index)) {
+					return false;
+				}
 			}
 		}
 
@@ -93,8 +96,10 @@ export default class WordCalculator {
 			if (!il || !il.letters) {
 				continue;
 			}
-			if (!WordCalculator.containsButNotAtIndex(letters, il.letters[0], il.index)) {
-				return false;
+			for (let j = 0; j < il.letters.length; j++) {
+				if (!WordCalculator.containsButNotAtIndex(letters, il.letters[j], il.index)) {
+					return false;
+				}
 			}
 		}
 

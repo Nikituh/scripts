@@ -8,7 +8,7 @@ export default class RemainingWordGallery extends React.Component<any, any> {
         console.log("remaining words", this.props.words);
 
         return (
-            <div style={{display: "flex", flexWrap: "wrap", maxWidth: 400, paddingTop: 20}}>
+            <div style={{display: "flex", flexWrap: "wrap", width: 400, paddingTop: 20}}>
                 {this.props.words.map((word: string) => {
                     return <div
                         style={{
