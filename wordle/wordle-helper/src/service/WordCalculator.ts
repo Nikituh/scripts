@@ -55,31 +55,58 @@ export default class WordCalculator {
 		const filtered: string[] = [];
 
 		this.words.forEach((word: string) => {
-			const letters = word.split("");
 
-			const max_letters = 5;
-
-			let isValidWord = false;
-
-			for (let i = 0; i < max_letters; i++) {
-				const il = this.correctLetters[i];
-				if (!il || !il.letters) {
-					continue;
-				}
-				il.letters!.forEach((letter) => {
-					if (WordCalculator.containsAtIndex(letters, letter, il.index)) {
-						isValidWord = true
-					}
-				});
-			}
-
-			if (isValidWord) {
+			if (this.containsAllLettersAtCorrectIndices(word) && this.containsAllPresentLettersNotAtIndices(word) && this.doesNotContainMissingLetters(word)) {
 				filtered.push(word);
 			}
-
-			
 		});
 
 		return filtered
 	}
+
+	static containsAllLettersAtCorrectIndices(word: string): boolean {
+		const letters = word.split("");
+
+		const max_letters = 5;
+
+		for (let i = 0; i < max_letters; i++) {
+			const il = this.correctLetters[i];
+			if (!il || !il.letters) {
+				continue;
+			}
+			if (!WordCalculator.containsAtIndex(letters, il.letters[0], il.index)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	static containsAllPresentLettersNotAtIndices(word: string): boolean {
+		
+		const letters = word.split("");
+
+		const max_letters = 5;
+
+		for (let i = 0; i < max_letters; i++) {
+			const il = this.presentLetters[i];
+			if (!il || !il.letters) {
+				continue;
+			}
+			if (!WordCalculator.containsButNotAtIndex(letters, il.letters[0], il.index)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	static doesNotContainMissingLetters(word: string): boolean {
+		const letters = word.split("");
+
+		return this.missingLetters.every((letter) => {
+			return WordCalculator.doesNotContain(letters, letter);
+		});
+	}
+
 }
