@@ -10,8 +10,10 @@ export default class RemainingWordGallery extends React.Component<any, any> {
             return null;
         }
 
-        words.push("...");
-
+        if (this.props.words.length > 99) {
+            words.push("...");
+        }
+        
         return (
             <div style={{ display: "flex", flexWrap: "wrap", width: 400, paddingTop: 20, overflow: "scroll", }}>
                 {words.map((word: string) => {
